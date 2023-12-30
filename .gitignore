@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/NewZealandWalk/FileContentIndex
+/.vs/ProjectEvaluation
+/.vs/NewZealandWalk/v17
+/.vs/NewZealandWalk/DesignTimeBuild
+/NewZealandWalk.API/obj
+/NewZealandWalk.API/bin/Debug/net7.0
