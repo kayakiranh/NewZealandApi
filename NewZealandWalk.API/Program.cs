@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using NewZealandWalk.API.Data;
+using NewZealandWalk.API.Mappings;
+using NewZealandWalk.API.Repositories;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
@@ -14,6 +16,10 @@ builder.Services.AddDbContext<NzwDbContext>(dbOptions =>
     dbOptions.UseLazyLoadingProxies(false);
     dbOptions.EnableDetailedErrors(true);
 });
+builder.Services.AddScoped<IRegionRepository, EfRegionRepository>();
+builder.Services.AddScoped<IDifficultyRepository, EfDifficultyRepository>();
+builder.Services.AddScoped<IWalkRouteRepository, EfWalkRouteRepository>();
+builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 
 WebApplication app = builder.Build();
 if (app.Environment.IsDevelopment())

@@ -6,7 +6,9 @@ namespace NewZealandWalk.API.Data
     [Serializable]
     public class NzwDbContext : DbContext
     {
-        public NzwDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions) { }
+        public NzwDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
+        {
+        }
 
         public DbSet<Difficulty> Difficulties { get; set; }
         public DbSet<Region> Regions { get; set; }

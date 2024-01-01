@@ -7,7 +7,7 @@ namespace NewZealandWalk.API.Models.Domain
     public class WalkRoute
     {
         [Required]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid Id { get; set; }
 
         [Required]
         [MaxLength(30)]
@@ -26,10 +26,12 @@ namespace NewZealandWalk.API.Models.Domain
 
         //Difficulty-WalkRoute Relation
         public Guid DifficultyId { get; set; }
+
         public Difficulty Difficulty { get; set; }
 
         //Region-WalkRoute Relation
         public Guid RegionId { get; set; }
+
         public Region Region { get; set; }
     }
 }

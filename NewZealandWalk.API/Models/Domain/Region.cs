@@ -6,7 +6,7 @@ namespace NewZealandWalk.API.Models.Domain
     [Serializable]
     public class Region
     {
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public Guid Id { get; set; }
 
         [Required]
         [MaxLength(10)]

@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
-
-namespace NewZealandWalk.API.Models.DataTransferObject.RegionDtos
+﻿namespace NewZealandWalk.API.Models.DataTransferObject.RegionDtos
 {
     [Serializable]
     public record RegionDto
@@ -10,6 +7,6 @@ namespace NewZealandWalk.API.Models.DataTransferObject.RegionDtos
         public string Code { get; set; }
 
         public string Name { get; set; }
-        public string ImageUrl { get; set; }
+        public string? ImageUrl { get; set; }
     }
 }
