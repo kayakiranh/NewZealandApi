@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using NewZealandWalk.API.Data;
 using NewZealandWalk.API.Models.Domain;
 
@@ -15,12 +16,27 @@ namespace NewZealandWalk.API.Repositories
             _logger = logger;
         }
 
-        public async Task<List<WalkRoute>> GetAllAsync()
+        public async Task<List<WalkRoute>> GetAllAsync(string? queryName = null, bool? isOrderName = null, bool? isLengthOrder = null, int? page = null)
         {
-            List<WalkRoute> walkRouteList = await _context.WalkRoutes.Include(x => x.Difficulty).Include(x => x.Region).AsNoTracking().ToListAsync();
+            IQueryable<WalkRoute> walkRouteList = _context.WalkRoutes.Include(x => x.Difficulty).Include(x => x.Region).AsNoTracking().AsQueryable();
+
+            if (isLengthOrder != null)
+            {
+                walkRouteList = (bool)isLengthOrder ? walkRouteList.OrderBy(x => x.LengthInKm) : walkRouteList.OrderByDescending(x => x.LengthInKm);
+            }
+
+            if (!string.IsNullOrWhiteSpace(queryName) && isOrderName != null)
+            {
+                walkRouteList = walkRouteList.Where(x => x.Name.Contains(queryName));
+
+                walkRouteList = (bool)isOrderName ? walkRouteList.OrderBy(x => x.Name) : walkRouteList.OrderByDescending(x => x.Name);
+            }
+
+            if (page > 0) walkRouteList = walkRouteList.Skip((int)page * 10).Take(10);
+
             if (!walkRouteList.Any()) { _logger.LogInformation("EfWalkRouteRepository GetAllAsync"); }
 
-            return walkRouteList;
+            return await walkRouteList.ToListAsync();
         }
 
         public async Task<WalkRoute> GetByIdAsync(Guid id)

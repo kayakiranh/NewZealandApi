@@ -4,7 +4,7 @@ namespace NewZealandWalk.API.Repositories
 {
     public interface IWalkRouteRepository
     {
-        Task<List<WalkRoute>> GetAllAsync();
+        Task<List<WalkRoute>> GetAllAsync(string? queryName = null, bool? isOrderName = null, bool? isLengthOrder = null, int? page = null);
 
         Task<WalkRoute> GetByIdAsync(Guid id);
 

@@ -1,10 +1,11 @@
-﻿using NewZealandWalk.API.Models.Domain;
+﻿using Microsoft.AspNetCore.Mvc;
+using NewZealandWalk.API.Models.Domain;
 
 namespace NewZealandWalk.API.Repositories
 {
     public interface IDifficultyRepository
     {
-        Task<List<Difficulty>> GetAllAsync();
+        Task<List<Difficulty>> GetAllAsync(string? queryName = null, bool? isOrderName = null, int? page = null);
 
         Task<Difficulty> GetByIdAsync(Guid id);
 

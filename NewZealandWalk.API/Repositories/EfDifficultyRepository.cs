@@ -15,12 +15,21 @@ namespace NewZealandWalk.API.Repositories
             _logger = logger;
         }
 
-        public async Task<List<Difficulty>> GetAllAsync()
+        public async Task<List<Difficulty>> GetAllAsync(string? queryName = null, bool? isOrderName = null, int? page = null)
         {
-            List<Difficulty> difficultyList = await _context.Difficulties.AsNoTracking().ToListAsync();
+            IQueryable<Difficulty> difficultyList = _context.Difficulties.AsNoTracking().AsQueryable();
+            if (!string.IsNullOrWhiteSpace(queryName) && isOrderName != null)
+            {
+                difficultyList = difficultyList.Where(x => x.Name.Contains(queryName));
+
+                difficultyList = (bool)isOrderName ? difficultyList.OrderBy(x => x.Name) : difficultyList.OrderByDescending(x => x.Name);
+            }
+
+            if (page > 0) difficultyList = difficultyList.Skip((int)page * 10).Take(10);
+
             if (!difficultyList.Any()) { _logger.LogInformation("EfDifficultyRepository GetAllAsync"); }
 
-            return difficultyList;
+            return await difficultyList.ToListAsync();
         }
 
         public async Task<Difficulty> GetByIdAsync(Guid id)

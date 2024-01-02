@@ -30,9 +30,9 @@ namespace NewZealandWalk.API.Controllers
         [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] string? queryName, [FromQuery] bool? isOrderName, [FromQuery] int? page = null)
         {
-            List<Region> regionList = await _regionRepository.GetAllAsync();
+            List<Region> regionList = await _regionRepository.GetAllAsync(queryName, isOrderName, page);
             if (!regionList.Any()) return NoContent();
 
             List<RegionDto> regionDtoList = _mapper.Map<List<RegionDto>>(regionList);

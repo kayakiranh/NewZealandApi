@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using NewZealandWalk.API.Data;
 using NewZealandWalk.API.Models.Domain;
+using System.Collections.Immutable;
 
 namespace NewZealandWalk.API.Repositories
 {
@@ -15,12 +16,21 @@ namespace NewZealandWalk.API.Repositories
             _logger = logger;
         }
 
-        public async Task<List<Region>> GetAllAsync()
+        public async Task<List<Region>> GetAllAsync(string? queryName = null, bool? isOrderName = null, int? page = null)
         {
-            List<Region> regionList = await _context.Regions.AsNoTracking().ToListAsync();
+            IQueryable<Region> regionList = _context.Regions.AsNoTracking().AsQueryable();
+            if (!string.IsNullOrWhiteSpace(queryName) && isOrderName != null)
+            {
+                regionList = regionList.Where(x => x.Name.Contains(queryName));
+
+                regionList = (bool)isOrderName ? regionList.OrderBy(x => x.Name) : regionList.OrderByDescending(x => x.Name);
+            }
+
+            if (page > 0) regionList = regionList.Skip((int)page * 10).Take(10);
+
             if (!regionList.Any()) { _logger.LogInformation("EfRegionRepository GetAllAsync"); }
 
-            return regionList;
+            return await regionList.ToListAsync();
         }
 
         public async Task<Region> GetByIdAsync(Guid id)

@@ -30,9 +30,9 @@ namespace NewZealandWalk.API.Controllers
         [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] string? queryName, [FromQuery] bool? isOrderName, [FromQuery] int? page = null)
         {
-            List<Difficulty> difficultyList = await _difficultyRepository.GetAllAsync();
+            List<Difficulty> difficultyList = await _difficultyRepository.GetAllAsync(queryName, isOrderName, page);
             if (!difficultyList.Any()) return NoContent();
 
             List<DifficultyDto> difficultyDtoList = _mapper.Map<List<DifficultyDto>>(difficultyList);
