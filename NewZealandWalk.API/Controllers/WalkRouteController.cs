@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using NewZealandWalk.API.CustomActionFilters;
 using NewZealandWalk.API.Models.DataTransferObject.WalkRouteDtos;
 using NewZealandWalk.API.Models.Domain;
 using NewZealandWalk.API.Repositories;
@@ -58,9 +59,9 @@ namespace NewZealandWalk.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(417)]
+        [ValidateModel]
         public async Task<IActionResult> Create([FromBody] CreateWalkRouteDto model)
         {
-            if (model == null) return BadRequest();
             WalkRoute walkRoute = _mapper.Map<WalkRoute>(model);
             WalkRoute insertedWalkRoute = await _walkRouteRepository.CreateAsync(walkRoute);
             if (insertedWalkRoute.Id == Guid.Empty) return Problem("WalkRoute Create Error", "", 417);
@@ -74,11 +75,9 @@ namespace NewZealandWalk.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(417)]
+        [ValidateModel]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateWalkRouteDto model)
         {
-            if (model == null) { _logger.LogError("WalkRoute Update : {model}", model); return BadRequest(); }
-            if (id == Guid.Empty) { _logger.LogError("WalkRoute Update : {model}", model); return BadRequest(); }
-
             WalkRoute walkRoute = _mapper.Map<WalkRoute>(model);
             WalkRoute updatedWalkRoute = await _walkRouteRepository.UpdateAsync(id, walkRoute);
             if (updatedWalkRoute == null) return Problem("WalkRoute Create Error", "", 417);

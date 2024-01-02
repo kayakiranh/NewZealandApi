@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using NewZealandWalk.API.CustomActionFilters;
 using NewZealandWalk.API.Models.DataTransferObject.DifficultyDtos;
 using NewZealandWalk.API.Models.Domain;
 using NewZealandWalk.API.Repositories;
@@ -58,9 +59,9 @@ namespace NewZealandWalk.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(417)]
+        [ValidateModel]
         public async Task<IActionResult> Create([FromBody] CreateDifficultyDto model)
         {
-            if (model == null) return BadRequest();
             Difficulty difficulty = _mapper.Map<Difficulty>(model);
             Difficulty insertedDifficulty = await _difficultyRepository.CreateAsync(difficulty);
             if (insertedDifficulty.Id == Guid.Empty) return Problem("Difficulty Create Error", "", 417);
@@ -74,14 +75,12 @@ namespace NewZealandWalk.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(417)]
+        [ValidateModel]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateDifficultyDto model)
         {
-            if (model == null) { _logger.LogError("Difficulty Update : {model}", model); return BadRequest(); }
-            if (id == Guid.Empty) { _logger.LogError("Difficulty Update : {model}", model); return BadRequest(); }
-
             Difficulty difficulty = _mapper.Map<Difficulty>(model);
             Difficulty updatedDifficulty = await _difficultyRepository.UpdateAsync(id, difficulty);
-            if (updatedDifficulty == null) return Problem("Difficulty Create Error", "", 417);
+            if (updatedDifficulty == null) return Problem("Difficulty Update Error", "", 417);
             if (updatedDifficulty.Id == Guid.Empty) return NoContent();
 
             return Ok(updatedDifficulty);

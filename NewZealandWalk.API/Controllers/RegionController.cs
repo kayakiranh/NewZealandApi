@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using NewZealandWalk.API.CustomActionFilters;
 using NewZealandWalk.API.Models.DataTransferObject.RegionDtos;
 using NewZealandWalk.API.Models.Domain;
 using NewZealandWalk.API.Repositories;
@@ -58,9 +59,9 @@ namespace NewZealandWalk.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(417)]
+        [ValidateModel]
         public async Task<IActionResult> Create([FromBody] CreateRegionDto model)
         {
-            if (model == null) return BadRequest();
             Region region = _mapper.Map<Region>(model);
             Region insertedRegion = await _regionRepository.CreateAsync(region);
             if (insertedRegion.Id == Guid.Empty) return Problem("Region Create Error", "", 417);
@@ -74,11 +75,9 @@ namespace NewZealandWalk.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(417)]
+        [ValidateModel]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateRegionDto model)
         {
-            if (model == null) { _logger.LogError("Region Update : {model}", model); return BadRequest(); }
-            if (id == Guid.Empty) { _logger.LogError("Region Update : {model}", model); return BadRequest(); }
-
             Region region = _mapper.Map<Region>(model);
             Region updatedRegion = await _regionRepository.UpdateAsync(id, region);
             if (updatedRegion == null) return Problem("Region Create Error", "", 417);
