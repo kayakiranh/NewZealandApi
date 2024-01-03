@@ -13,6 +13,7 @@ WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 builder.Services.AddMvc().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 builder.Services.AddControllers();
+builder.Services.AddHttpContextAccessor();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
@@ -46,6 +47,7 @@ builder.Services.AddScoped<IRegionRepository, EfRegionRepository>();
 builder.Services.AddScoped<IDifficultyRepository, EfDifficultyRepository>();
 builder.Services.AddScoped<IWalkRouteRepository, EfWalkRouteRepository>();
 builder.Services.AddScoped<ITokenRepository, TokenRepository>();
+builder.Services.AddScoped<IPhotoRepository, LocalPhotoRepository>();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters
 {

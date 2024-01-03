@@ -16,6 +16,7 @@ namespace NewZealandWalk.API.Data
         public DbSet<Difficulty> Difficulties { get; set; }
         public DbSet<Region> Regions { get; set; }
         public DbSet<WalkRoute> WalkRoutes { get; set; }
+        public DbSet<Photo> Photos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -34,6 +35,12 @@ namespace NewZealandWalk.API.Data
             {
                 entity.Property<Guid>("Id").ValueGeneratedOnAdd();
                 entity.HasIndex(e => e.Name).IsClustered(false);
+            });
+            modelBuilder.Entity<Photo>(entity =>
+            {
+                entity.Property<Guid>("Id").ValueGeneratedOnAdd();
+                entity.HasIndex(e => e.Name).IsClustered(false);
+                entity.HasIndex(e => e.Extension).IsClustered(false);
             });
         }
     }
