@@ -14,10 +14,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<NzwDbContext>(dbOptions =>
 {
-    dbOptions.UseSqlServer(builder.Configuration.GetSection("ConnectionString").Value);
+    dbOptions.UseSqlServer(builder.Configuration.GetConnectionString("NewZealandWalkConnectionString"));
     dbOptions.EnableSensitiveDataLogging();
     dbOptions.UseLazyLoadingProxies(false);
     dbOptions.EnableDetailedErrors(true);
+});
+builder.Services.AddDbContext<NzwAuthDbContext>(dbOptions =>
+{
+    dbOptions.UseSqlServer(builder.Configuration.GetConnectionString("NewZealandWalkAuthConnectionString"));
 });
 builder.Services.AddScoped<IRegionRepository, EfRegionRepository>();
 builder.Services.AddScoped<IDifficultyRepository, EfDifficultyRepository>();
