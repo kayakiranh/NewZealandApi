@@ -4,8 +4,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace NewZealandWalk.API.Data
 {
+    [Serializable]
     public class NzwAuthDbContext : IdentityDbContext
     {
+        //add-migration "Creating_Auth_Database" -Context "NzwAuthDbContext"
+        //update-database -Context "NzwAuthDbContext"
+
         public NzwAuthDbContext(DbContextOptions<NzwAuthDbContext> options) : base(options)
         {
 

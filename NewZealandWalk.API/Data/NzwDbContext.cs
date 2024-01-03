@@ -6,6 +6,9 @@ namespace NewZealandWalk.API.Data
     [Serializable]
     public class NzwDbContext : DbContext
     {
+        //add-migration "Creating_Auth_Database" -Context "NzwDbContext"
+        //update-database -Context "NzwDbContext"
+
         public NzwDbContext(DbContextOptions<NzwDbContext> dbContextOptions) : base(dbContextOptions)
         {
         }
