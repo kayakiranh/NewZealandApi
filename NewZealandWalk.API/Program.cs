@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using NewZealandWalk.API.Data;
 using NewZealandWalk.API.Mappings;
 using NewZealandWalk.API.Repositories;
+using System.Runtime;
 using System.Text;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -12,7 +14,26 @@ builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true
 builder.Services.AddMvc().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "New Zealand Walks API", Version = "v1" });
+    options.AddSecurityDefinition(JwtBearerDefaults.AuthenticationScheme, new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = JwtBearerDefaults.AuthenticationScheme
+    });
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement {{
+        new OpenApiSecurityScheme{
+            Reference = new OpenApiReference{ Type = ReferenceType.SecurityScheme, Id = JwtBearerDefaults.AuthenticationScheme  },
+            Scheme = "Oauth2",
+            Name = JwtBearerDefaults.AuthenticationScheme,
+            In = ParameterLocation.Header
+        },
+        new List<string>()
+    }});
+});
 builder.Services.AddDbContext<NzwDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("NewZealandWalkConnectionString"));
@@ -24,6 +45,7 @@ builder.Services.AddDbContext<NzwAuthDbContext>(options => options.UseSqlServer(
 builder.Services.AddScoped<IRegionRepository, EfRegionRepository>();
 builder.Services.AddScoped<IDifficultyRepository, EfDifficultyRepository>();
 builder.Services.AddScoped<IWalkRouteRepository, EfWalkRouteRepository>();
+builder.Services.AddScoped<ITokenRepository, TokenRepository>();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfiles));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => options.TokenValidationParameters = new TokenValidationParameters
 {

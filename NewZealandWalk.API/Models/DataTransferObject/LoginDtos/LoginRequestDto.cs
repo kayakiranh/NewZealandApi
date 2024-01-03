@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace NewZealandWalk.API.Models.DataTransferObject.RegisterDto
+namespace NewZealandWalk.API.Models.DataTransferObject.LoginDtos
 {
     [Serializable]
-    public record RegisterRequestDto
+    public record LoginRequestDto
     {
         [Required]
         [DataType(DataType.EmailAddress)]
@@ -12,8 +12,5 @@ namespace NewZealandWalk.API.Models.DataTransferObject.RegisterDto
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
-
-        [Required]
-        public string[] Roles { get; set; }
     }
 }

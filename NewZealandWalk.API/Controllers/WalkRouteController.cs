@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NewZealandWalk.API.CustomActionFilters;
 using NewZealandWalk.API.Models.DataTransferObject.WalkRouteDtos;
@@ -8,7 +9,6 @@ using NewZealandWalk.API.Repositories;
 namespace NewZealandWalk.API.Controllers
 {
     //https://localhost:7265/swagger/v1/swagger.json
-    //[Authorize]
     [ApiController]
     [Route("api/[controller]")]
     [Produces("application/json")]
@@ -30,6 +30,7 @@ namespace NewZealandWalk.API.Controllers
         [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
+        [Authorize(Roles = "Writer,Reader")]
         public async Task<IActionResult> GetAll([FromQuery] string? queryName, [FromQuery] bool? isOrderName, [FromQuery] bool? isLengthOrder, [FromQuery] int? page = null)
         {
             List<WalkRoute> walkRouteList = await _walkRouteRepository.GetAllAsync(queryName, isOrderName, isLengthOrder, page);
@@ -44,6 +45,7 @@ namespace NewZealandWalk.API.Controllers
         [HttpGet("{id:Guid}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
+        [Authorize(Roles = "Writer,Reader")]
         public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
             WalkRoute walkRoute = await _walkRouteRepository.GetByIdAsync(id);
@@ -60,6 +62,7 @@ namespace NewZealandWalk.API.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(417)]
         [ValidateModel]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> Create([FromBody] CreateWalkRouteDto model)
         {
             WalkRoute walkRoute = _mapper.Map<WalkRoute>(model);
@@ -76,6 +79,7 @@ namespace NewZealandWalk.API.Controllers
         [ProducesResponseType(400)]
         [ProducesResponseType(417)]
         [ValidateModel]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateWalkRouteDto model)
         {
             WalkRoute walkRoute = _mapper.Map<WalkRoute>(model);
@@ -92,6 +96,7 @@ namespace NewZealandWalk.API.Controllers
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(417)]
+        [Authorize(Roles = "Writer")]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             if (id == Guid.Empty) { _logger.LogError("WalkRoute Delete : {id}", id); return BadRequest(); }
