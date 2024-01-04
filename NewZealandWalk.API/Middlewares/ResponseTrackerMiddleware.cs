@@ -1,4 +1,6 @@
-﻿namespace NewZealandWalk.API.Middlewares
+﻿using Microsoft.AspNetCore.Http.Extensions;
+
+namespace NewZealandWalk.API.Middlewares
 {
     public class ResponseTrackerMiddleware
     {
@@ -13,35 +15,30 @@
 
         public async Task InvokeAsync(HttpContext httpContext)
         {
-            if (httpContext.Response.StatusCode != 204)
+            if (httpContext.Response.StatusCode != 200)
             {
-                string controllerName = httpContext.Request.RouteValues["controller"].ToString();
-                string actionName = httpContext.Request.RouteValues["action"].ToString();
-
-                string absoluteUri = string.Concat(
-                    httpContext.Request.Scheme,
-                    "://",
-                    httpContext.Request.Host.ToUriComponent(),
-                    httpContext.Request.PathBase.ToUriComponent(),
-                    httpContext.Request.Path.ToUriComponent(),
-                    httpContext.Request.QueryString.ToUriComponent()
-                );
+                string url = httpContext.Request.GetDisplayUrl();
+                string body = string.Empty;
+                if (httpContext.Request.Body != null)
+                {
+                    body = await new StreamReader(httpContext.Request.Body).ReadToEndAsync();
+                }
 
                 if (httpContext.Response.StatusCode == 204)
                 {
-                    _logger.LogInformation($"204:{controllerName}:{actionName}, {absoluteUri}");
+                    _logger.LogInformation($"204:{url}:{body}");
                 }
                 else if (httpContext.Response.StatusCode == 400)
                 {
-                    _logger.LogWarning($"400:{controllerName}:{actionName}, {absoluteUri}");
+                    _logger.LogWarning($"400:{url}:{body}");
                 }
                 else if (httpContext.Response.StatusCode == 500)
                 {
-                    _logger.LogCritical($"500:{controllerName}:{actionName}, {absoluteUri}");
+                    _logger.LogCritical($"500:{url}:{body}");
                 }
                 else
                 {
-                    _logger.LogError($"{httpContext.Response.StatusCode}:{controllerName}:{actionName}, {absoluteUri}");
+                    _logger.LogError($"{httpContext.Response.StatusCode}:{url}:{body}");
                 }
             }
 
