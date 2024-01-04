@@ -5,6 +5,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NewZealandWalk.API.Data;
 using NewZealandWalk.API.Mappings;
+using NewZealandWalk.API.Middlewares;
 using NewZealandWalk.API.Repositories;
 using Serilog;
 using Serilog.Events;
@@ -88,6 +89,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseMiddleware<ResponseTrackerMiddleware>();
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 app.UseRouting();
 app.UseHttpsRedirection();
 app.UseAuthentication();
