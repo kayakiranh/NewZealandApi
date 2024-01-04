@@ -6,7 +6,7 @@ using Microsoft.OpenApi.Models;
 using NewZealandWalk.API.Data;
 using NewZealandWalk.API.Mappings;
 using NewZealandWalk.API.Repositories;
-using System.Runtime;
+using Serilog;
 using System.Text;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
@@ -73,6 +73,9 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequiredLength = 6;
     options.Password.RequiredUniqueChars = 1;
 });
+var logger = new LoggerConfiguration().WriteTo.Console().MinimumLevel.Information().CreateLogger();
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 
 WebApplication app = builder.Build();
 if (app.Environment.IsDevelopment())
