@@ -2,7 +2,7 @@
 using NewZealandWalk.API.Models.DataTransferObject.DifficultyDtos;
 using NewZealandWalk.API.Models.DataTransferObject.RegionDtos;
 using NewZealandWalk.API.Models.DataTransferObject.WalkRouteDtos;
-using NewZealandWalk.API.Models.Domain;
+using NewZealandWalk.API.Models.NzWalk.Domain;
 
 namespace NewZealandWalk.API.Mappings
 {

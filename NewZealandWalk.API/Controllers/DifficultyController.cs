@@ -1,38 +1,51 @@
-﻿using AutoMapper;
+﻿using Asp.Versioning;
+using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NewZealandWalk.API.CustomActionFilters;
 using NewZealandWalk.API.Models.DataTransferObject.DifficultyDtos;
-using NewZealandWalk.API.Models.Domain;
+using NewZealandWalk.API.Models.Identity.Domain;
+using NewZealandWalk.API.Models.NzWalk.Domain;
 using NewZealandWalk.API.Repositories;
+using System.Net;
 
 namespace NewZealandWalk.API.Controllers
 {
-    //https://localhost:7265/swagger/v1/swagger.json
+    [Authorize(Roles = "Writer,Reader")]
+    //[Authorize]
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Policy = null)]
     [ApiController]
-    [Route("api/[controller]")]
     [Produces("application/json")]
+    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
+    [Route("api/v{VersionId:apiVersion}/[controller]")]
     public class DifficultyController : ControllerBase
     {
         private readonly IDifficultyRepository _difficultyRepository;
         private readonly ILogger<DifficultyController> _logger;
         private readonly IMapper _mapper;
+        private readonly UserManager<AppUser> _userManager;
 
-        public DifficultyController(ILogger<DifficultyController> logger, IDifficultyRepository difficultyRepository, IMapper mapper)
+        public DifficultyController(ILogger<DifficultyController> logger, IDifficultyRepository difficultyRepository, IMapper mapper, UserManager<AppUser> userManager)
         {
             _logger = logger;
             _difficultyRepository = difficultyRepository;
             _mapper = mapper;
+            _userManager = userManager;
         }
 
         //(HttpGet)https://localhost:7265/api/v1/difficulty
         //(HttpGet)http://localhost:5070/api/v1/difficulty
+        [MapToApiVersion("1.0")]
         [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
-        [Authorize(Roles = "Writer,Reader")]
         public async Task<IActionResult> GetAll([FromQuery] string? queryName, [FromQuery] bool? isOrderName, [FromQuery] int? page = null)
         {
+
             List<Difficulty> difficultyList = await _difficultyRepository.GetAllAsync(queryName, isOrderName, page);
             if (!difficultyList.Any()) return NoContent();
 
@@ -42,10 +55,11 @@ namespace NewZealandWalk.API.Controllers
 
         //(HttpGet)https://localhost:7265/api/v1/difficulty/2a03a45e-8d9f-4083-bb9b-9601da9354b3
         //(HttpGet)http://localhost:5070/api/v1/difficulty/2a03a45e-8d9f-4083-bb9b-9601da9354b3
+        [MapToApiVersion("1.0")]
         [HttpGet("{id:Guid}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
-        [Authorize(Roles = "Writer,Reader")]
+        //[Authorize]
         public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
             Difficulty difficulty = await _difficultyRepository.GetByIdAsync(id);
@@ -57,12 +71,13 @@ namespace NewZealandWalk.API.Controllers
 
         //(HttpPost)https://localhost:7265/api/v1/difficulty + body
         //(HttpPost)http://localhost:5070/api/v1/difficulty + body
+        [MapToApiVersion("1.0")]
         [HttpPost]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(417)]
         [ValidateModel]
-        [Authorize(Roles = "Writer")]
+        [Authorize]
         public async Task<IActionResult> Create([FromBody] CreateDifficultyDto model)
         {
             Difficulty difficulty = _mapper.Map<Difficulty>(model);
@@ -74,12 +89,13 @@ namespace NewZealandWalk.API.Controllers
 
         //(HttpPut)https://localhost:7265/api/v1/difficulty/2a03a45e-8d9f-4083-bb9b-9601da9354b3 + body
         //(HttpPut)http://localhost:5070/api/v1/difficulty/2a03a45e-8d9f-4083-bb9b-9601da9354b3 + body
+        [MapToApiVersion("1.0")]
         [HttpPut("{id:Guid}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(417)]
         [ValidateModel]
-        [Authorize(Roles = "Writer")]
+        [Authorize]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateDifficultyDto model)
         {
             Difficulty difficulty = _mapper.Map<Difficulty>(model);
@@ -92,11 +108,12 @@ namespace NewZealandWalk.API.Controllers
 
         //(HttpDelete)https://localhost:7265/api/v1/difficulty/2a03a45e-8d9f-4083-bb9b-9601da9354b3
         //(HttpDelete)http://localhost:5070/api/v1/difficulty/2a03a45e-8d9f-4083-bb9b-9601da9354b3
+        [MapToApiVersion("1.0")]
         [HttpDelete("{id:Guid}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
         [ProducesResponseType(417)]
-        [Authorize(Roles = "Writer")]
+        [Authorize]
         public async Task<IActionResult> Delete([FromRoute] Guid id)
         {
             if (id == Guid.Empty) { _logger.LogError("Difficulty Delete : {id}", id); return BadRequest(); }

@@ -17,6 +17,5 @@ namespace NewZealandWalk.API.Models.DataTransferObject.PhotoDtos
         [AllowNull]
         [MaxLength(255, ErrorMessage = "Name has to be a maximum of 10 characters")]
         public string? Description { get; set; }
-
     }
 }

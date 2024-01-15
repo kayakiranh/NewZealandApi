@@ -1,5 +1,5 @@
 ﻿using NewZealandWalk.API.Data;
-using NewZealandWalk.API.Models.Domain;
+using NewZealandWalk.API.Models.NzWalk.Domain;
 
 namespace NewZealandWalk.API.Repositories
 {
@@ -15,7 +15,6 @@ namespace NewZealandWalk.API.Repositories
             _webHostEnvironment = webHostEnvironment;
             _httpContextAccessor = httpContextAccessor;
             _dbContext = dbContext;
-
         }
 
         public async Task<Photo> Upload(Photo model)
@@ -35,7 +34,6 @@ namespace NewZealandWalk.API.Repositories
             if (affectedRowCount < 1) return new Photo { Id = Guid.Empty };
 
             return model;
-
         }
     }
 }

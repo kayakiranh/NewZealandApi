@@ -1,13 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NewZealandWalk.API.Models.DataTransferObject.PhotoDtos;
-using NewZealandWalk.API.Models.Domain;
+using NewZealandWalk.API.Models.NzWalk.Domain;
 using NewZealandWalk.API.Repositories;
 
 namespace NewZealandWalk.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
+    [ApiVersion("2.0")]
+    [Route("api/v{VersionId:apiVersion}/[controller]")]
     public class PhotoController : ControllerBase
     {
         private readonly IPhotoRepository _photoRepository;
@@ -17,6 +20,7 @@ namespace NewZealandWalk.API.Controllers
             _photoRepository = photoRepository;
         }
 
+        [MapToApiVersion("2.0")]
         [HttpPost("Upload")]
         public async Task<IActionResult> Upload([FromForm] PhotoUploadRequestDto model)
         {

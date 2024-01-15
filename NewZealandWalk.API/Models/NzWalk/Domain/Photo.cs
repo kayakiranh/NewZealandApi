@@ -2,11 +2,12 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
-namespace NewZealandWalk.API.Models.Domain
+namespace NewZealandWalk.API.Models.NzWalk.Domain
 {
     [Serializable]
     public class Photo
     {
+        [Required]
         public Guid Id { get; set; }
 
         [Required]

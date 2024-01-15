@@ -1,17 +1,20 @@
-﻿using AutoMapper;
+﻿using Asp.Versioning;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NewZealandWalk.API.CustomActionFilters;
 using NewZealandWalk.API.Models.DataTransferObject.WalkRouteDtos;
-using NewZealandWalk.API.Models.Domain;
+using NewZealandWalk.API.Models.NzWalk.Domain;
 using NewZealandWalk.API.Repositories;
 
 namespace NewZealandWalk.API.Controllers
 {
-    //https://localhost:7265/swagger/v1/swagger.json
+    [Authorize]
     [ApiController]
-    [Route("api/[controller]")]
     [Produces("application/json")]
+    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
+    [Route("api/v{VersionId:apiVersion}/[controller]")]
     public class WalkRouteController : ControllerBase
     {
         private readonly IWalkRouteRepository _walkRouteRepository;
@@ -27,6 +30,7 @@ namespace NewZealandWalk.API.Controllers
 
         //(HttpGet)https://localhost:7265/api/v1/walkroute
         //(HttpGet)http://localhost:5070/api/v1/walkroute
+        [MapToApiVersion("1.0")]
         [HttpGet]
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
@@ -42,6 +46,7 @@ namespace NewZealandWalk.API.Controllers
 
         //(HttpGet)https://localhost:7265/api/v1/walkroute/2a03a45e-8d9f-4083-bb9b-9601da9354b3
         //(HttpGet)http://localhost:5070/api/v1/walkroute/2a03a45e-8d9f-4083-bb9b-9601da9354b3
+        [MapToApiVersion("1.0")]
         [HttpGet("{id:Guid}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(204)]
@@ -57,6 +62,7 @@ namespace NewZealandWalk.API.Controllers
 
         //(HttpPost)https://localhost:7265/api/v1/walkroute + body
         //(HttpPost)http://localhost:5070/api/v1/walkroute + body
+        [MapToApiVersion("1.0")]
         [HttpPost]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -74,6 +80,7 @@ namespace NewZealandWalk.API.Controllers
 
         //(HttpPut)https://localhost:7265/api/v1/walkroute/2a03a45e-8d9f-4083-bb9b-9601da9354b3 + body
         //(HttpPut)http://localhost:5070/api/v1/walkroute/2a03a45e-8d9f-4083-bb9b-9601da9354b3 + body
+        [MapToApiVersion("1.0")]
         [HttpPut("{id:Guid}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]
@@ -92,6 +99,7 @@ namespace NewZealandWalk.API.Controllers
 
         //(HttpDelete)https://localhost:7265/api/v1/walkroute/2a03a45e-8d9f-4083-bb9b-9601da9354b3
         //(HttpDelete)http://localhost:5070/api/v1/walkroute/2a03a45e-8d9f-4083-bb9b-9601da9354b3
+        [MapToApiVersion("1.0")]
         [HttpDelete("{id:Guid}")]
         [ProducesResponseType(200)]
         [ProducesResponseType(400)]

@@ -1,0 +1,1078 @@
+2024-01-14 00:01:37.013 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 00:01:37.383 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 00:01:37.386 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 00:01:37.391 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 00:01:37.393 +03:00 [INF] Hosting environment: Development
+2024-01-14 00:01:37.395 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 00:01:45.413 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 00:02:27.751 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 00:02:28.138 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 00:02:28.140 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 00:02:28.143 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 00:02:28.144 +03:00 [INF] Hosting environment: Development
+2024-01-14 00:02:28.145 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 00:02:28.493 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 00:02:35.379 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentException: An item with the same key has already been added. Key: v1
+   at System.Collections.Generic.Dictionary`2.TryInsert(TKey key, TValue value, InsertionBehavior behavior)
+   at System.Collections.Generic.Dictionary`2.Add(TKey key, TValue value)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.SwaggerDoc(SwaggerGenOptions swaggerGenOptions, String name, OpenApiInfo info)
+   at NewZealandWalk.API.Swagger.ConfigureSwaggerOptions.Configure(SwaggerGenOptions options) in C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API\Swagger\ConfigureSwaggerOptions.cs:line 18
+   at NewZealandWalk.API.Swagger.ConfigureSwaggerOptions.Configure(String name, SwaggerGenOptions options) in C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API\Swagger\ConfigureSwaggerOptions.cs:line 43
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions..ctor(IOptions`1 swaggerGenOptionsAccessor, IServiceProvider serviceProvider, IWebHostEnvironment hostingEnv)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.ConstructorInvoker.Invoke(Object obj, IntPtr* args, BindingFlags invokeAttr)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitNoCache(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_1(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method2(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-01-14 00:02:35.500 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 500 - text/html;+charset=utf-8 7009.7255ms
+2024-01-14 00:02:35.506 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:02:35.511 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:02:35.518 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 7.4753ms
+2024-01-14 00:02:35.544 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 37.1970ms
+2024-01-14 00:02:35.610 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/favicon.ico - -
+2024-01-14 00:04:09.640 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 00:04:09.878 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 00:04:09.880 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 00:04:09.882 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 00:04:09.883 +03:00 [INF] Hosting environment: Development
+2024-01-14 00:04:09.883 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 00:04:18.670 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 00:04:19.069 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 400.2167ms
+2024-01-14 00:04:19.073 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:04:19.073 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:04:19.082 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 8.7030ms
+2024-01-14 00:04:19.126 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 53.0833ms
+2024-01-14 00:04:19.189 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:04:19.368 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 179.0473ms
+2024-01-14 00:04:23.216 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - -
+2024-01-14 00:04:23.224 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/v2/auth/register" for actions - NewZealandWalk.API.Controllers.AuthController.ClientV2 (NewZealandWalk.API),NewZealandWalk.API.Controllers.AuthController.RegisterV2 (NewZealandWalk.API). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-01-14 00:04:23.264 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - - - 500 - text/plain;+charset=utf-8 48.2745ms
+2024-01-14 00:04:36.685 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html?urls.primaryName=V2 - -
+2024-01-14 00:04:36.694 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html?urls.primaryName=V2 - - - 200 - text/html;charset=utf-8 8.6347ms
+2024-01-14 00:04:36.718 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/swagger-ui.css - -
+2024-01-14 00:04:36.719 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/swagger-ui-bundle.js - -
+2024-01-14 00:04:36.719 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:04:36.719 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:04:36.719 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/swagger-ui-standalone-preset.js - -
+2024-01-14 00:04:36.732 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 12.6545ms
+2024-01-14 00:04:36.749 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 29.5314ms
+2024-01-14 00:04:36.814 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-01-14 00:04:36.814 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-01-14 00:04:36.814 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-01-14 00:04:36.817 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/swagger-ui.css - - - 200 144929 text/css 98.8241ms
+2024-01-14 00:04:36.818 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/swagger-ui-bundle.js - - - 200 1061536 text/javascript 99.3288ms
+2024-01-14 00:04:36.821 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/swagger-ui-standalone-preset.js - - - 200 312163 text/javascript 101.7090ms
+2024-01-14 00:04:37.037 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - -
+2024-01-14 00:04:37.042 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/v2/auth/register" for actions - NewZealandWalk.API.Controllers.AuthController.ClientV2 (NewZealandWalk.API),NewZealandWalk.API.Controllers.AuthController.RegisterV2 (NewZealandWalk.API). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-01-14 00:04:37.050 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - - - 500 - text/plain;+charset=utf-8 12.5346ms
+2024-01-14 00:04:37.076 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/favicon-32x32.png - -
+2024-01-14 00:04:37.080 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-01-14 00:04:37.083 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/favicon-32x32.png - - - 200 628 image/png 6.5851ms
+2024-01-14 00:07:28.572 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 00:07:28.853 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 00:07:28.856 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 00:07:28.860 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 00:07:28.862 +03:00 [INF] Hosting environment: Development
+2024-01-14 00:07:28.864 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 00:07:29.239 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 00:07:29.649 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 413.3593ms
+2024-01-14 00:07:29.651 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:07:29.651 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:07:29.666 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 14.0229ms
+2024-01-14 00:07:29.697 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.0907ms
+2024-01-14 00:07:29.849 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:07:30.004 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 154.8895ms
+2024-01-14 00:07:50.418 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - -
+2024-01-14 00:07:50.428 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/v2/auth/register" for actions - NewZealandWalk.API.Controllers.AuthController.ClientV2 (NewZealandWalk.API),NewZealandWalk.API.Controllers.AuthController.RegisterV2 (NewZealandWalk.API). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-01-14 00:07:50.466 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - - - 500 - text/plain;+charset=utf-8 48.0073ms
+2024-01-14 00:07:55.847 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html?urls.primaryName=V2 - -
+2024-01-14 00:07:55.860 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html?urls.primaryName=V2 - - - 200 - text/html;charset=utf-8 12.8585ms
+2024-01-14 00:07:55.882 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/swagger-ui-standalone-preset.js - -
+2024-01-14 00:07:55.883 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:07:55.882 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:07:55.882 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/swagger-ui.css - -
+2024-01-14 00:07:55.882 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/swagger-ui-bundle.js - -
+2024-01-14 00:07:55.895 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 12.7516ms
+2024-01-14 00:07:55.952 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 68.0136ms
+2024-01-14 00:07:55.972 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-01-14 00:07:55.972 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-01-14 00:07:55.971 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-01-14 00:07:55.975 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/swagger-ui-bundle.js - - - 200 1061536 text/javascript 92.5018ms
+2024-01-14 00:07:55.978 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/swagger-ui-standalone-preset.js - - - 200 312163 text/javascript 95.6756ms
+2024-01-14 00:07:55.982 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/swagger-ui.css - - - 200 144929 text/css 99.0569ms
+2024-01-14 00:07:56.193 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - -
+2024-01-14 00:07:56.196 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/v2/auth/register" for actions - NewZealandWalk.API.Controllers.AuthController.ClientV2 (NewZealandWalk.API),NewZealandWalk.API.Controllers.AuthController.RegisterV2 (NewZealandWalk.API). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-01-14 00:07:56.207 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - - - 500 - text/plain;+charset=utf-8 14.0692ms
+2024-01-14 00:07:56.254 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/favicon-32x32.png - -
+2024-01-14 00:07:56.259 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-01-14 00:07:56.262 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/favicon-32x32.png - - - 200 628 image/png 7.8151ms
+2024-01-14 00:17:32.208 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 00:17:32.885 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 00:17:32.888 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 00:17:32.890 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 00:17:32.891 +03:00 [INF] Hosting environment: Development
+2024-01-14 00:17:32.892 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 00:17:42.054 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 00:17:42.565 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:17:42.565 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:17:42.565 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 512.7953ms
+2024-01-14 00:17:42.593 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 27.7771ms
+2024-01-14 00:17:42.618 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 53.2501ms
+2024-01-14 00:17:42.765 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:17:42.932 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 166.8354ms
+2024-01-14 00:17:47.607 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - -
+2024-01-14 00:17:47.615 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/v2/auth/register" for actions - NewZealandWalk.API.Controllers.AuthController.ClientV2 (NewZealandWalk.API),NewZealandWalk.API.Controllers.AuthController.RegisterV2 (NewZealandWalk.API). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-01-14 00:17:47.747 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - - - 500 - text/plain;+charset=utf-8 139.7300ms
+2024-01-14 00:17:48.948 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:17:48.963 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 14.6915ms
+2024-01-14 00:18:09.489 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - -
+2024-01-14 00:18:09.492 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/v2/auth/register" for actions - NewZealandWalk.API.Controllers.AuthController.ClientV2 (NewZealandWalk.API),NewZealandWalk.API.Controllers.AuthController.RegisterV2 (NewZealandWalk.API). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-01-14 00:18:09.499 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - - - 500 - text/plain;+charset=utf-8 10.3681ms
+2024-01-14 00:18:15.800 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html?urls.primaryName=V2 - -
+2024-01-14 00:18:15.819 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html?urls.primaryName=V2 - - - 200 - text/html;charset=utf-8 18.2983ms
+2024-01-14 00:18:15.840 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/swagger-ui.css - -
+2024-01-14 00:18:15.841 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:18:15.841 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/swagger-ui-standalone-preset.js - -
+2024-01-14 00:18:15.841 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:18:15.841 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/swagger-ui-bundle.js - -
+2024-01-14 00:18:15.871 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 28.7358ms
+2024-01-14 00:18:15.885 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 43.6449ms
+2024-01-14 00:18:15.928 +03:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2024-01-14 00:18:15.928 +03:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2024-01-14 00:18:15.928 +03:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2024-01-14 00:18:15.931 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/swagger-ui-bundle.js - - - 200 1061536 text/javascript 89.9139ms
+2024-01-14 00:18:15.933 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/swagger-ui-standalone-preset.js - - - 200 312163 text/javascript 92.0079ms
+2024-01-14 00:18:15.935 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/swagger-ui.css - - - 200 144929 text/css 95.5894ms
+2024-01-14 00:18:16.154 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - -
+2024-01-14 00:18:16.158 +03:00 [ERR] An unhandled exception has occurred while executing the request.
+Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/v2/auth/register" for actions - NewZealandWalk.API.Controllers.AuthController.ClientV2 (NewZealandWalk.API),NewZealandWalk.API.Controllers.AuthController.RegisterV2 (NewZealandWalk.API). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerAsync(String documentName, String host, String basePath)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-01-14 00:18:16.165 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - - - 500 - text/plain;+charset=utf-8 10.7448ms
+2024-01-14 00:18:16.191 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/favicon-32x32.png - -
+2024-01-14 00:18:16.196 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-01-14 00:18:16.198 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/favicon-32x32.png - - - 200 628 image/png 6.5420ms
+2024-01-14 00:20:37.027 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 00:20:37.310 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 00:20:37.313 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 00:20:37.315 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 00:20:37.316 +03:00 [INF] Hosting environment: Development
+2024-01-14 00:20:37.317 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 00:20:37.691 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 00:20:38.088 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 399.4346ms
+2024-01-14 00:20:38.091 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:20:38.091 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:20:38.100 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 7.9187ms
+2024-01-14 00:20:38.139 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 47.7396ms
+2024-01-14 00:20:38.299 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:20:38.457 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 158.0081ms
+2024-01-14 00:20:40.482 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - -
+2024-01-14 00:20:40.491 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 9.2584ms
+2024-01-14 00:20:46.308 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:20:46.323 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 15.4366ms
+2024-01-14 00:21:16.816 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 00:21:17.111 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 00:21:17.113 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 00:21:17.115 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 00:21:17.116 +03:00 [INF] Hosting environment: Development
+2024-01-14 00:21:17.117 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 00:21:29.639 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 00:21:30.073 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 441.6660ms
+2024-01-14 00:21:30.073 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:21:30.073 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:21:30.085 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 11.7446ms
+2024-01-14 00:21:30.131 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.8423ms
+2024-01-14 00:21:30.181 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:21:30.343 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 162.3789ms
+2024-01-14 00:50:38.036 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 00:50:38.325 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 00:50:38.327 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 00:50:38.329 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 00:50:38.330 +03:00 [INF] Hosting environment: Development
+2024-01-14 00:50:38.331 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 00:50:46.809 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 00:50:47.256 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 446.9322ms
+2024-01-14 00:50:47.263 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:50:47.263 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:50:47.281 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 17.7887ms
+2024-01-14 00:50:47.316 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 53.2962ms
+2024-01-14 00:50:47.394 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:50:47.571 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 176.0511ms
+2024-01-14 00:51:16.906 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 00:51:16.916 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 11.3352ms
+2024-01-14 00:51:16.935 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:51:16.935 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:51:16.940 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 4.9277ms
+2024-01-14 00:51:16.959 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 23.5205ms
+2024-01-14 00:51:17.018 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:51:17.041 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 22.8677ms
+2024-01-14 00:51:17.671 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 00:51:17.678 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 6.9047ms
+2024-01-14 00:51:17.694 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:51:17.694 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:51:17.698 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 3.8999ms
+2024-01-14 00:51:17.706 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 11.6918ms
+2024-01-14 00:51:17.779 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:51:17.801 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 22.4009ms
+2024-01-14 00:51:17.911 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 00:51:17.921 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 9.3840ms
+2024-01-14 00:51:17.981 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:51:17.981 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:51:17.985 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 3.2207ms
+2024-01-14 00:51:17.999 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 18.0261ms
+2024-01-14 00:51:18.069 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:51:18.089 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 20.3498ms
+2024-01-14 00:51:21.231 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - -
+2024-01-14 00:51:21.242 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 11.2213ms
+2024-01-14 00:51:25.028 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:51:25.047 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 18.6225ms
+2024-01-14 00:52:08.655 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 00:52:08.926 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 00:52:08.928 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 00:52:08.930 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 00:52:08.931 +03:00 [INF] Hosting environment: Development
+2024-01-14 00:52:08.932 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 00:52:20.947 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 00:52:21.350 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 404.2763ms
+2024-01-14 00:52:21.353 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:52:21.353 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:52:21.374 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 21.0439ms
+2024-01-14 00:52:21.418 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 65.1559ms
+2024-01-14 00:52:21.469 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:52:21.664 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 195.3868ms
+2024-01-14 00:54:28.658 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 00:54:28.922 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 00:54:28.923 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 00:54:28.926 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 00:54:28.927 +03:00 [INF] Hosting environment: Development
+2024-01-14 00:54:28.928 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 00:54:35.503 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 00:54:35.735 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 00:54:35.738 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 00:54:35.740 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 00:54:35.741 +03:00 [INF] Hosting environment: Development
+2024-01-14 00:54:35.741 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 00:54:49.200 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 00:54:49.646 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:54:49.639 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:54:49.654 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 454.9289ms
+2024-01-14 00:54:49.685 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 48.1253ms
+2024-01-14 00:54:49.722 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 83.2374ms
+2024-01-14 00:54:49.790 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:54:49.984 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 193.0724ms
+2024-01-14 00:58:48.845 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 00:58:49.137 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 00:58:49.139 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 00:58:49.141 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 00:58:49.142 +03:00 [INF] Hosting environment: Development
+2024-01-14 00:58:49.143 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 00:59:01.023 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 00:59:01.454 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 431.6456ms
+2024-01-14 00:59:01.454 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 00:59:01.454 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 00:59:01.467 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 10.4343ms
+2024-01-14 00:59:01.498 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 43.7646ms
+2024-01-14 00:59:01.560 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 00:59:01.728 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 168.4098ms
+2024-01-14 01:01:30.870 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 01:01:31.133 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 01:01:31.135 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 01:01:31.137 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 01:01:31.138 +03:00 [INF] Hosting environment: Development
+2024-01-14 01:01:31.139 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 01:01:31.536 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 01:01:31.970 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 435.2050ms
+2024-01-14 01:01:31.978 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 01:01:31.978 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 01:01:31.989 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 11.3129ms
+2024-01-14 01:01:32.035 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 57.0571ms
+2024-01-14 01:01:32.109 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 01:01:32.291 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 182.1247ms
+2024-01-14 01:04:33.423 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 01:04:33.721 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 01:04:33.724 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 01:04:33.727 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 01:04:33.729 +03:00 [INF] Hosting environment: Development
+2024-01-14 01:04:33.729 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 01:04:43.492 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 01:04:43.938 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 449.2730ms
+2024-01-14 01:04:43.941 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 01:04:43.941 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 01:04:43.953 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 12.1312ms
+2024-01-14 01:04:43.994 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 52.9636ms
+2024-01-14 01:04:44.067 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 01:04:44.251 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 184.4198ms
+2024-01-14 19:52:48.123 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 19:52:48.923 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 19:52:48.925 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 19:52:48.927 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 19:52:48.928 +03:00 [INF] Hosting environment: Development
+2024-01-14 19:52:48.928 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 19:52:51.826 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 19:52:52.444 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 617.7676ms
+2024-01-14 19:52:52.448 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 19:52:52.448 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 19:52:52.460 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 12.1935ms
+2024-01-14 19:52:52.525 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 76.7892ms
+2024-01-14 19:52:52.593 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 19:52:52.788 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 195.0359ms
+2024-01-14 19:53:42.598 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7265/api/v1/auth/login application/json 63
+2024-01-14 19:53:48.198 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 19:53:48.218 +03:00 [INF] Route matched with {action = "LoginV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginV1(NewZealandWalk.API.Models.DataTransferObject.LoginDtos.LoginRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 19:53:49.989 +03:00 [INF] Executed DbCommand (53ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-01-14 19:53:50.220 +03:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-01-14 19:53:50.235 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API) in 2010.1667ms
+2024-01-14 19:53:50.237 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 19:53:50.245 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7265/api/v1/auth/login application/json 63 - 400 - application/problem+json;+charset=utf-8 7647.0449ms
+2024-01-14 19:54:33.882 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7265/api/v1/auth/register application/json 102
+2024-01-14 19:54:33.888 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API)'
+2024-01-14 19:54:33.895 +03:00 [INF] Route matched with {action = "RegisterV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterV1(NewZealandWalk.API.Models.DataTransferObject.RegisterDtos.RegisterRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 19:54:34.043 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-14 19:54:34.141 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 256), @p4='?' (DbType = Boolean), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTimeOffset), @p7='?' (Size = 256), @p8='?' (Size = 256), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Boolean), @p12='?' (Size = 4000), @p13='?' (DbType = Boolean), @p14='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+2024-01-14 19:54:34.166 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 19:54:34.203 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
+2024-01-14 19:54:34.213 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 19:54:34.229 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 19:54:34.239 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
+2024-01-14 19:54:34.245 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 19:54:34.252 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-14 19:54:34.294 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p2='?' (Size = 450), @p3='?' (Size = 450), @p18='?' (Size = 450), @p4='?' (DbType = Int32), @p5='?' (Size = 4000), @p19='?' (Size = 4000), @p6='?' (Size = 256), @p7='?' (DbType = Boolean), @p8='?' (DbType = Boolean), @p9='?' (DbType = DateTimeOffset), @p10='?' (Size = 256), @p11='?' (Size = 256), @p12='?' (Size = 4000), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 4000), @p16='?' (DbType = Boolean), @p17='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1),
+(@p2, @p3);
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p4, [ConcurrencyStamp] = @p5, [Email] = @p6, [EmailConfirmed] = @p7, [LockoutEnabled] = @p8, [LockoutEnd] = @p9, [NormalizedEmail] = @p10, [NormalizedUserName] = @p11, [PasswordHash] = @p12, [PhoneNumber] = @p13, [PhoneNumberConfirmed] = @p14, [SecurityStamp] = @p15, [TwoFactorEnabled] = @p16, [UserName] = @p17
+OUTPUT 1
+WHERE [Id] = @p18 AND [ConcurrencyStamp] = @p19;
+2024-01-14 19:54:34.313 +03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-01-14 19:54:34.316 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API) in 415.9646ms
+2024-01-14 19:54:34.317 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API)'
+2024-01-14 19:54:34.319 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7265/api/v1/auth/register application/json 102 - 200 0 - 437.2473ms
+2024-01-14 19:54:54.856 +03:00 [INF] Request starting HTTP/2 POST https://localhost:7265/api/v1/auth/login application/json 62
+2024-01-14 19:54:54.869 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 19:54:54.871 +03:00 [INF] Route matched with {action = "LoginV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginV1(NewZealandWalk.API.Models.DataTransferObject.LoginDtos.LoginRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 19:54:54.894 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-01-14 19:54:55.006 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-01-14 19:54:55.077 +03:00 [INF] Executing OkObjectResult, writing value of type 'NewZealandWalk.API.Models.DataTransferObject.LoginDtos.LoginResponseDto'.
+2024-01-14 19:54:55.085 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API) in 212.9659ms
+2024-01-14 19:54:55.088 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 19:54:55.089 +03:00 [INF] Request finished HTTP/2 POST https://localhost:7265/api/v1/auth/login application/json 62 - 200 - application/json;+charset=utf-8 233.6239ms
+2024-01-14 20:04:31.231 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-01-14 20:04:31.283 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-01-14 20:04:31.293 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-01-14 20:06:25.084 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-01-14 20:06:25.134 +03:00 [INF] Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-01-14 20:06:25.136 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-01-14 20:06:25.137 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-01-14 20:06:25.147 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-01-14 20:06:25.160 +03:00 [INF] Applying migration '20240114170603_AppUsers_Added'.
+2024-01-14 20:06:25.203 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [AspNetUsers] ADD [Discriminator] nvarchar(max) NOT NULL DEFAULT N'';
+2024-01-14 20:06:25.204 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [AspNetUsers] ADD [RefreshToken] nvarchar(max) NULL;
+2024-01-14 20:06:25.205 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [AspNetUsers] ADD [RefreshTokenExpiration] datetime2 NULL;
+2024-01-14 20:06:25.206 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [AspNetUsers] ADD [Token] nvarchar(max) NULL;
+2024-01-14 20:06:25.207 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20240114170603_AppUsers_Added', N'7.0.14');
+2024-01-14 21:32:19.140 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 21:32:19.393 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 21:32:19.396 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 21:32:19.401 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 21:32:19.403 +03:00 [INF] Hosting environment: Development
+2024-01-14 21:32:19.405 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 21:32:19.697 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 21:32:20.166 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 21:32:20.166 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 21:32:20.167 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 470.5102ms
+2024-01-14 21:32:20.179 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 11.4333ms
+2024-01-14 21:32:20.225 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 58.3437ms
+2024-01-14 21:32:20.286 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 21:32:20.472 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 186.1283ms
+2024-01-14 21:32:32.299 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v3/swagger.json - -
+2024-01-14 21:32:32.307 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 8.3367ms
+2024-01-14 21:40:36.074 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 21:40:36.093 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 22.4564ms
+2024-01-14 21:45:27.631 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7265/api/v1/difficulty - -
+2024-01-14 21:45:27.792 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Writer|Reader)
+2024-01-14 21:45:27.799 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-01-14 21:45:27.803 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7265/api/v1/difficulty - - - 401 0 - 172.0624ms
+2024-01-14 21:45:47.909 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:7265/api/v1/difficulty - -
+2024-01-14 21:45:47.939 +03:00 [INF] Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2024-01-14 21:45:47.943 +03:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Writer|Reader)
+2024-01-14 21:45:47.950 +03:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-01-14 21:45:47.952 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:7265/api/v1/difficulty - - - 401 0 - 43.6552ms
+2024-01-14 21:58:47.250 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/register application/json 100
+2024-01-14 21:58:47.257 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API)'
+2024-01-14 21:58:47.288 +03:00 [INF] Route matched with {action = "RegisterV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterV1(NewZealandWalk.API.Models.DataTransferObject.RegisterDtos.RegisterRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 21:58:48.961 +03:00 [INF] Executed DbCommand (52ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-14 21:58:49.177 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Discriminator], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2024-01-14 21:58:49.213 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 21:58:49.229 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 21:58:49.343 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API) in 2047.0221ms
+2024-01-14 21:58:49.348 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API)'
+2024-01-14 21:58:49.469 +03:00 [FTL] 0420f875-88fd-4df6-b7db-951bb654ab20 : Role ADMIN does not exist.
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRolesAsync(TUser user, IEnumerable`1 roles)
+   at NewZealandWalk.API.Controllers.AuthController.RegisterV1(RegisterRequestDto model) in C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API\Controllers\AuthController.cs:line 66
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NewZealandWalk.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API\Middlewares\ExceptionHandlerMiddleware.cs:line 20
+2024-01-14 21:58:49.626 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/register application/json 100 - 500 - application/json;+charset=utf-8 2376.0909ms
+2024-01-14 21:59:09.347 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/register application/json 100
+2024-01-14 21:59:09.350 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API)'
+2024-01-14 21:59:09.355 +03:00 [INF] Route matched with {action = "RegisterV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterV1(NewZealandWalk.API.Models.DataTransferObject.RegisterDtos.RegisterRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 21:59:15.185 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-14 21:59:19.314 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 21:59:19.347 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 21:59:19.440 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API) in 10081.2929ms
+2024-01-14 21:59:19.442 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API)'
+2024-01-14 21:59:19.516 +03:00 [FTL] 707a3fec-4ff6-4cee-b831-b2ae997af74b : Role ADMIN does not exist.
+System.InvalidOperationException: Role ADMIN does not exist.
+   at Microsoft.AspNetCore.Identity.EntityFrameworkCore.UserStore`9.AddToRoleAsync(TUser user, String normalizedRoleName, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Identity.UserManager`1.AddToRolesAsync(TUser user, IEnumerable`1 roles)
+   at NewZealandWalk.API.Controllers.AuthController.RegisterV1(RegisterRequestDto model) in C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API\Controllers\AuthController.cs:line 66
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NewZealandWalk.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API\Middlewares\ExceptionHandlerMiddleware.cs:line 20
+2024-01-14 21:59:19.536 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/register application/json 100 - 500 - application/json;+charset=utf-8 10189.1223ms
+2024-01-14 22:00:10.750 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/register application/json 101
+2024-01-14 22:00:10.764 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API)'
+2024-01-14 22:00:10.766 +03:00 [INF] Route matched with {action = "RegisterV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterV1(NewZealandWalk.API.Models.DataTransferObject.RegisterDtos.RegisterRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 22:00:14.527 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-14 22:00:14.541 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 22:00:14.591 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
+2024-01-14 22:00:14.596 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 22:00:14.617 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-14 22:00:16.397 +03:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-01-14 22:00:16.406 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API) in 5635.5248ms
+2024-01-14 22:00:16.408 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API)'
+2024-01-14 22:00:16.409 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/register application/json 101 - 400 - application/problem+json;+charset=utf-8 5659.6376ms
+2024-01-14 22:01:05.827 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/register application/json 101
+2024-01-14 22:01:05.835 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API)'
+2024-01-14 22:01:05.836 +03:00 [INF] Route matched with {action = "RegisterV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterV1(NewZealandWalk.API.Models.DataTransferObject.RegisterDtos.RegisterRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 22:01:05.910 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-14 22:01:08.496 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 22:01:08.531 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
+2024-01-14 22:01:08.536 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 22:01:08.542 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-14 22:01:53.512 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2024-01-14 22:01:53.516 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API) in 47677.5257ms
+2024-01-14 22:01:53.518 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API)'
+2024-01-14 22:01:53.520 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/register application/json 101 - 400 - text/plain;+charset=utf-8 47692.6137ms
+2024-01-14 22:01:54.470 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html?urls.primaryName=V1 - -
+2024-01-14 22:01:54.504 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html?urls.primaryName=V1 - - - 200 - text/html;charset=utf-8 28.5756ms
+2024-01-14 22:01:54.528 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 22:01:54.528 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 22:01:54.544 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 14.3765ms
+2024-01-14 22:01:54.591 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 63.7412ms
+2024-01-14 22:01:54.895 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 22:01:54.925 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 39.2515ms
+2024-01-14 22:02:20.196 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/register application/json 102
+2024-01-14 22:02:20.199 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API)'
+2024-01-14 22:02:20.209 +03:00 [INF] Route matched with {action = "RegisterV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterV1(NewZealandWalk.API.Models.DataTransferObject.RegisterDtos.RegisterRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 22:02:20.298 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-14 22:02:20.308 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Discriminator], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);
+2024-01-14 22:02:20.316 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 22:02:20.322 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
+2024-01-14 22:02:20.327 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 22:02:20.334 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-14 22:02:20.379 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p16='?' (Size = 450), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p17='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = Boolean), @p15='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p2, [ConcurrencyStamp] = @p3, [Email] = @p4, [EmailConfirmed] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [SecurityStamp] = @p13, [TwoFactorEnabled] = @p14, [UserName] = @p15
+OUTPUT 1
+WHERE [Id] = @p16 AND [ConcurrencyStamp] = @p17;
+2024-01-14 22:02:20.399 +03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-01-14 22:02:20.401 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API) in 187.4883ms
+2024-01-14 22:02:20.402 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API)'
+2024-01-14 22:02:20.404 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/register application/json 102 - 200 0 - 208.0984ms
+2024-01-14 22:02:55.938 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68
+2024-01-14 22:02:55.943 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:02:55.951 +03:00 [INF] Route matched with {action = "LoginV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginV1(NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos.LoginRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 22:03:01.217 +03:00 [INF] Executed DbCommand (6ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-01-14 22:03:07.675 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-01-14 22:03:10.901 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API) in 14947.1573ms
+2024-01-14 22:03:10.903 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:03:10.986 +03:00 [FTL] 57e872eb-11c2-44aa-98c1-439c69a75442 : No IUserTwoFactorTokenProvider<TUser> named 'NewZealandWalk' is registered.
+System.NotSupportedException: No IUserTwoFactorTokenProvider<TUser> named 'NewZealandWalk' is registered.
+   at Microsoft.AspNetCore.Identity.UserManager`1.GenerateUserTokenAsync(TUser user, String tokenProvider, String purpose)
+   at NewZealandWalk.API.Repositories.TokenRepository.CreateTokens(IdentityUser user, List`1 roles)
+   at NewZealandWalk.API.Controllers.AuthController.LoginV1(LoginRequestDto model)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NewZealandWalk.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext)
+2024-01-14 22:03:11.001 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68 - 500 - application/json;+charset=utf-8 15063.0069ms
+2024-01-14 22:03:22.453 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68
+2024-01-14 22:03:22.456 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:03:22.457 +03:00 [INF] Route matched with {action = "LoginV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginV1(NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos.LoginRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 22:03:26.755 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-01-14 22:03:26.835 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-01-14 22:03:56.632 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API) in 34171.3753ms
+2024-01-14 22:03:56.635 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:03:56.722 +03:00 [FTL] 054e7ce4-3dd7-4b90-bfda-007bf732ccdb : No IUserTwoFactorTokenProvider<TUser> named 'NewZealandWalk' is registered.
+System.NotSupportedException: No IUserTwoFactorTokenProvider<TUser> named 'NewZealandWalk' is registered.
+   at Microsoft.AspNetCore.Identity.UserManager`1.GenerateUserTokenAsync(TUser user, String tokenProvider, String purpose)
+   at NewZealandWalk.API.Repositories.TokenRepository.CreateTokens(IdentityUser user, List`1 roles)
+   at NewZealandWalk.API.Controllers.AuthController.LoginV1(LoginRequestDto model)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NewZealandWalk.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext)
+2024-01-14 22:03:56.735 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68 - 500 - application/json;+charset=utf-8 34281.5194ms
+2024-01-14 22:05:54.760 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 22:05:55.016 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 22:05:55.018 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 22:05:55.020 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 22:05:55.022 +03:00 [INF] Hosting environment: Development
+2024-01-14 22:05:55.023 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 22:05:58.093 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68
+2024-01-14 22:05:58.421 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 22:05:58.597 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:05:58.622 +03:00 [INF] Route matched with {action = "LoginV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginV1(NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos.LoginRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 22:05:58.856 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 22:05:58.871 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 22:05:58.886 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 460.4363ms
+2024-01-14 22:05:58.901 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 35.6589ms
+2024-01-14 22:05:58.967 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 111.3128ms
+2024-01-14 22:06:06.569 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 22:06:06.753 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 183.6123ms
+2024-01-14 22:06:08.087 +03:00 [INF] Executed DbCommand (50ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-01-14 22:06:08.411 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-01-14 22:06:21.584 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API) in 22953.4967ms
+2024-01-14 22:06:21.589 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:06:21.697 +03:00 [FTL] 0388178e-ac03-4a0a-924f-cb71888ca830 : No IUserTwoFactorTokenProvider<TUser> named 'NZW' is registered.
+System.NotSupportedException: No IUserTwoFactorTokenProvider<TUser> named 'NZW' is registered.
+   at Microsoft.AspNetCore.Identity.UserManager`1.GenerateUserTokenAsync(TUser user, String tokenProvider, String purpose)
+   at NewZealandWalk.API.Repositories.TokenRepository.CreateTokens(IdentityUser user, List`1 roles) in C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API\Repositories\TokenRepository.cs:line 39
+   at NewZealandWalk.API.Controllers.AuthController.LoginV1(LoginRequestDto model) in C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API\Controllers\AuthController.cs:line 84
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at NewZealandWalk.API.Middlewares.ExceptionHandlerMiddleware.InvokeAsync(HttpContext httpContext) in C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API\Middlewares\ExceptionHandlerMiddleware.cs:line 20
+2024-01-14 22:06:21.791 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68 - 500 - application/json;+charset=utf-8 23703.6257ms
+2024-01-14 22:08:55.539 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 22:08:55.856 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 22:08:55.857 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 22:08:55.860 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 22:08:55.861 +03:00 [INF] Hosting environment: Development
+2024-01-14 22:08:55.862 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 22:08:59.047 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 22:08:59.659 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 610.6502ms
+2024-01-14 22:08:59.666 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 22:08:59.666 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 22:08:59.696 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 29.6764ms
+2024-01-14 22:08:59.738 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 71.5149ms
+2024-01-14 22:08:59.826 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 22:09:00.053 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 226.6416ms
+2024-01-14 22:09:27.852 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68
+2024-01-14 22:09:28.039 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:09:28.065 +03:00 [INF] Route matched with {action = "LoginV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginV1(NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos.LoginRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 22:09:40.588 +03:00 [INF] Executed DbCommand (59ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-01-14 22:09:40.836 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-01-14 22:10:04.232 +03:00 [INF] Executing OkObjectResult, writing value of type 'NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos.LoginResponseDto'.
+2024-01-14 22:10:04.263 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API) in 36192.2776ms
+2024-01-14 22:10:04.268 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:10:04.279 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68 - 200 - application/json;+charset=utf-8 36427.7522ms
+2024-01-14 22:20:26.013 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 22:20:26.308 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 22:20:26.310 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 22:20:26.313 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 22:20:26.314 +03:00 [INF] Hosting environment: Development
+2024-01-14 22:20:26.316 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 22:20:26.852 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 22:20:27.399 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 22:20:27.399 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 22:20:27.399 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 549.9229ms
+2024-01-14 22:20:27.434 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 35.0818ms
+2024-01-14 22:20:27.497 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 98.1625ms
+2024-01-14 22:20:27.573 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 22:20:27.803 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 229.6544ms
+2024-01-14 22:20:34.790 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68
+2024-01-14 22:20:34.941 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:20:34.970 +03:00 [INF] Route matched with {action = "LoginV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginV1(NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos.LoginRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 22:20:42.207 +03:00 [INF] Executed DbCommand (55ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-01-14 22:20:42.737 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-01-14 22:23:31.600 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 22:23:31.857 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 22:23:31.858 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 22:23:31.861 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 22:23:31.862 +03:00 [INF] Hosting environment: Development
+2024-01-14 22:23:31.863 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 22:23:32.313 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 22:23:32.904 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 22:23:32.904 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 22:23:32.917 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 604.1927ms
+2024-01-14 22:23:32.924 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 19.3769ms
+2024-01-14 22:23:32.977 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 73.2281ms
+2024-01-14 22:23:33.046 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 22:23:33.258 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 210.5465ms
+2024-01-14 22:23:42.542 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68
+2024-01-14 22:23:42.697 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:23:42.723 +03:00 [INF] Route matched with {action = "LoginV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginV1(NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos.LoginRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 22:23:44.313 +03:00 [INF] Executed DbCommand (50ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-01-14 22:23:44.566 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-01-14 22:24:00.918 +03:00 [INF] Executing BadRequestObjectResult, writing value of type 'System.String'.
+2024-01-14 22:24:00.935 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API) in 18206.2795ms
+2024-01-14 22:24:00.941 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:24:00.955 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68 - 400 - text/plain;+charset=utf-8 18413.2722ms
+2024-01-14 22:46:24.108 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 22:46:24.398 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 22:46:24.399 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 22:46:24.402 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 22:46:24.403 +03:00 [INF] Hosting environment: Development
+2024-01-14 22:46:24.404 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 22:46:24.854 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 22:46:25.378 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 22:46:25.378 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 22:46:25.383 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 528.9550ms
+2024-01-14 22:46:25.404 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 25.9160ms
+2024-01-14 22:46:25.471 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 92.9902ms
+2024-01-14 22:46:25.567 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 22:46:25.889 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 321.7841ms
+2024-01-14 22:46:35.538 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68
+2024-01-14 22:46:35.713 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:46:35.748 +03:00 [INF] Route matched with {action = "LoginV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginV1(NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos.LoginRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 22:46:37.733 +03:00 [INF] Executed DbCommand (80ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'AppUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-01-14 22:46:37.790 +03:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-01-14 22:46:37.814 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API) in 2057.4725ms
+2024-01-14 22:46:37.816 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:46:37.828 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68 - 400 - application/problem+json;+charset=utf-8 2290.0761ms
+2024-01-14 22:47:11.436 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68
+2024-01-14 22:47:11.445 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:47:11.448 +03:00 [INF] Route matched with {action = "LoginV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginV1(NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos.LoginRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 22:47:11.549 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'AppUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-01-14 22:47:11.553 +03:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-01-14 22:47:11.555 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API) in 102.9876ms
+2024-01-14 22:47:11.556 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:47:11.560 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68 - 400 - application/problem+json;+charset=utf-8 123.8093ms
+2024-01-14 22:47:54.863 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68
+2024-01-14 22:47:54.867 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 22:47:54.868 +03:00 [INF] Route matched with {action = "LoginV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginV1(NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos.LoginRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 22:47:58.816 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'AppUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-01-14 22:48:55.181 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2024-01-14 22:48:55.235 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2024-01-14 22:48:55.248 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2024-01-14 22:55:38.965 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-14 22:55:39.271 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-14 22:55:39.272 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-14 22:55:39.275 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-14 22:55:39.277 +03:00 [INF] Hosting environment: Development
+2024-01-14 22:55:39.278 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-14 22:55:39.952 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-14 22:55:40.446 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 494.3652ms
+2024-01-14 22:55:40.447 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-14 22:55:40.454 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 7.0732ms
+2024-01-14 22:55:40.486 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-14 22:55:40.548 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 61.9592ms
+2024-01-14 22:55:40.618 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-14 22:55:40.886 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 268.5275ms
+2024-01-14 23:01:15.606 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68
+2024-01-14 23:01:15.758 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 23:01:15.783 +03:00 [INF] Route matched with {action = "LoginV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginV1(NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos.LoginRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 23:01:19.545 +03:00 [INF] Executed DbCommand (62ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'AppUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-01-14 23:02:40.007 +03:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-01-14 23:02:40.031 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API) in 84241.7619ms
+2024-01-14 23:02:40.035 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 23:02:40.048 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68 - 400 - application/problem+json;+charset=utf-8 84441.9995ms
+2024-01-14 23:03:03.806 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/register application/json 102
+2024-01-14 23:03:03.814 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API)'
+2024-01-14 23:03:03.824 +03:00 [INF] Route matched with {action = "RegisterV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] RegisterV1(NewZealandWalk.API.Models.DataTransferObject.RegisterDtos.RegisterRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 23:03:04.003 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'AppUser' AND [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-14 23:03:04.198 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (DbType = Int32), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = DateTime2), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([Id], [AccessFailedCount], [ConcurrencyStamp], [Discriminator], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [RefreshToken], [RefreshTokenExpiration], [SecurityStamp], [Token], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15, @p16, @p17, @p18);
+2024-01-14 23:03:04.225 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 23:03:04.276 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (Size = 450), @__p_1='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[UserId], [a].[RoleId]
+FROM [AspNetUserRoles] AS [a]
+WHERE [a].[UserId] = @__p_0 AND [a].[RoleId] = @__p_1
+2024-01-14 23:03:04.292 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedRoleName_0
+2024-01-14 23:03:04.313 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'AppUser' AND [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-14 23:03:04.369 +03:00 [INF] Executed DbCommand (7ms) [Parameters=[@p0='?' (Size = 450), @p1='?' (Size = 450), @p19='?' (Size = 450), @p2='?' (DbType = Int32), @p3='?' (Size = 4000), @p20='?' (Size = 4000), @p4='?' (Size = 256), @p5='?' (DbType = Boolean), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTimeOffset), @p8='?' (Size = 256), @p9='?' (Size = 256), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = DateTime2), @p15='?' (Size = 4000), @p16='?' (Size = 4000), @p17='?' (DbType = Boolean), @p18='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET NOCOUNT ON;
+INSERT INTO [AspNetUserRoles] ([RoleId], [UserId])
+VALUES (@p0, @p1);
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p2, [ConcurrencyStamp] = @p3, [Email] = @p4, [EmailConfirmed] = @p5, [LockoutEnabled] = @p6, [LockoutEnd] = @p7, [NormalizedEmail] = @p8, [NormalizedUserName] = @p9, [PasswordHash] = @p10, [PhoneNumber] = @p11, [PhoneNumberConfirmed] = @p12, [RefreshToken] = @p13, [RefreshTokenExpiration] = @p14, [SecurityStamp] = @p15, [Token] = @p16, [TwoFactorEnabled] = @p17, [UserName] = @p18
+OUTPUT 1
+WHERE [Id] = @p19 AND [ConcurrencyStamp] = @p20;
+2024-01-14 23:03:04.404 +03:00 [INF] Executing StatusCodeResult, setting HTTP status code 200
+2024-01-14 23:03:04.406 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API) in 577.3823ms
+2024-01-14 23:03:04.408 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API)'
+2024-01-14 23:03:04.412 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/register application/json 102 - 200 0 - 605.1157ms
+2024-01-14 23:03:08.784 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68
+2024-01-14 23:03:08.788 +03:00 [INF] Executing endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 23:03:08.790 +03:00 [INF] Route matched with {action = "LoginV1", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LoginV1(NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos.LoginRequestDto) on controller NewZealandWalk.API.Controllers.AuthController (NewZealandWalk.API).
+2024-01-14 23:03:12.550 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'AppUser' AND [a].[NormalizedEmail] = @__normalizedEmail_0
+2024-01-14 23:03:17.418 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[@__userId_0='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0
+2024-01-14 23:03:21.449 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Discriminator], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName], [a].[RefreshToken], [a].[RefreshTokenExpiration], [a].[Token]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Discriminator] = N'AppUser' AND [a].[NormalizedUserName] = @__normalizedUserName_0
+2024-01-14 23:03:21.485 +03:00 [INF] Executed DbCommand (5ms) [Parameters=[@p17='?' (Size = 450), @p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p18='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = DateTime2), @p13='?' (Size = 4000), @p14='?' (Size = 4000), @p15='?' (DbType = Boolean), @p16='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+UPDATE [AspNetUsers] SET [AccessFailedCount] = @p0, [ConcurrencyStamp] = @p1, [Email] = @p2, [EmailConfirmed] = @p3, [LockoutEnabled] = @p4, [LockoutEnd] = @p5, [NormalizedEmail] = @p6, [NormalizedUserName] = @p7, [PasswordHash] = @p8, [PhoneNumber] = @p9, [PhoneNumberConfirmed] = @p10, [RefreshToken] = @p11, [RefreshTokenExpiration] = @p12, [SecurityStamp] = @p13, [Token] = @p14, [TwoFactorEnabled] = @p15, [UserName] = @p16
+OUTPUT 1
+WHERE [Id] = @p17 AND [ConcurrencyStamp] = @p18;
+2024-01-14 23:03:25.311 +03:00 [INF] Executing OkObjectResult, writing value of type 'NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos.LoginResponseDto'.
+2024-01-14 23:03:25.329 +03:00 [INF] Executed action NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API) in 16537.0928ms
+2024-01-14 23:03:25.331 +03:00 [INF] Executed endpoint 'NewZealandWalk.API.Controllers.AuthController.LoginV1 (NewZealandWalk.API)'
+2024-01-14 23:03:25.333 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:7265/api/v1/auth/login application/json 68 - 200 - application/json;+charset=utf-8 16548.8090ms

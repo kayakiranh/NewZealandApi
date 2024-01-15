@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace NewZealandWalk.API.Models.Domain
+namespace NewZealandWalk.API.Models.NzWalk.Domain
 {
     [Serializable]
     public class Difficulty

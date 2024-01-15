@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NewZealandWalk.API.Data;
 
@@ -11,9 +12,11 @@ using NewZealandWalk.API.Data;
 namespace NewZealandWalk.API.Migrations.NzwAuthDb
 {
     [DbContext(typeof(NzwAuthDbContext))]
-    partial class NzwAuthDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240114170603_AppUsers_Added")]
+    partial class AppUsers_Added
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

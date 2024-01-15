@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using NewZealandWalk.API.Models.Identity.Domain;
 
 namespace NewZealandWalk.API.Data
 {
@@ -14,6 +15,8 @@ namespace NewZealandWalk.API.Data
         {
 
         }
+
+        public virtual DbSet<AppUser> AppUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
