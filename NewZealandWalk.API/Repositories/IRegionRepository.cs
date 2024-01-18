@@ -2,6 +2,9 @@
 
 namespace NewZealandWalk.API.Repositories
 {
+    /// <summary>
+    /// Entity Framework Repository for "Region" entity
+    /// </summary>
     public interface IRegionRepository
     {
         Task<List<Region>> GetAllAsync(string? queryName = null, bool? isOrderName = null, int? page = null);

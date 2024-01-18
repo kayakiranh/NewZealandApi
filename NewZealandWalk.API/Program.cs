@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -10,13 +11,22 @@ using NewZealandWalk.API.Mappings;
 using NewZealandWalk.API.Middlewares;
 using NewZealandWalk.API.Models.Identity.Domain;
 using NewZealandWalk.API.Repositories;
-using NewZealandWalk.API.Swagger;
+using NewZealandWalk.API.SwaggerOptions;
 using Serilog;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using System.IO.Compression;
 using System.Reflection;
 using System.Text;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+builder.Services.AddResponseCompression(options =>
+{
+    options.EnableForHttps = true;
+    options.Providers.Add<BrotliCompressionProvider>();
+    options.Providers.Add<GzipCompressionProvider>();
+});
+builder.Services.Configure<BrotliCompressionProviderOptions>(options => options.Level = CompressionLevel.Fastest);
+builder.Services.Configure<GzipCompressionProviderOptions>(options => options.Level = CompressionLevel.SmallestSize);
 builder.Services.Configure<RouteOptions>(options => options.LowercaseUrls = true);
 builder.Services.AddMvc().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 builder.Services.AddControllers();
@@ -81,7 +91,7 @@ builder.Services.AddAuthentication(options =>
     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Secret"])),
     ValidateIssuer = true,
     ValidateAudience = true,
-    ValidateLifetime = false,
+    ValidateLifetime = true,
     ValidateIssuerSigningKey = true
 });
 
@@ -122,6 +132,7 @@ if (app.Environment.IsDevelopment())
             options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json", description.GroupName.ToUpperInvariant());
     });
 }
+app.UseResponseCompression();
 app.UseMiddleware<ResponseTrackerMiddleware>();
 app.UseMiddleware<ExceptionHandlerMiddleware>();
 app.UseRouting();

@@ -4,6 +4,10 @@ using NewZealandWalk.API.Models.NzWalk.Domain;
 
 namespace NewZealandWalk.API.Repositories
 {
+    /// <summary>
+    /// Entity Framework Repository for "Region" entity
+    /// </summary>
+    [Serializable]
     public class EfRegionRepository : IRegionRepository
     {
         private readonly NzwDbContext _context;
@@ -21,7 +25,6 @@ namespace NewZealandWalk.API.Repositories
             if (!string.IsNullOrWhiteSpace(queryName) && isOrderName != null)
             {
                 regionList = regionList.Where(x => x.Name.Contains(queryName));
-
                 regionList = (bool)isOrderName ? regionList.OrderBy(x => x.Name) : regionList.OrderByDescending(x => x.Name);
             }
 
@@ -34,7 +37,7 @@ namespace NewZealandWalk.API.Repositories
 
         public async Task<Region> GetByIdAsync(Guid id)
         {
-            Region region = await _context.Regions.FindAsync(id);
+            Region? region = await _context.Regions.FindAsync(id);
             if (region == null)
             {
                 _logger.LogInformation("EfRegionRepository GetByIdAsync : {id}", id);
@@ -59,7 +62,7 @@ namespace NewZealandWalk.API.Repositories
 
         public async Task<Region> UpdateAsync(Guid id, Region model)
         {
-            Region region = await _context.Regions.FindAsync(id);
+            Region? region = await _context.Regions.FindAsync(id);
             if (region == null)
             {
                 _logger.LogInformation("EfRegionRepository UpdateAsync : {id}", id);
@@ -75,14 +78,14 @@ namespace NewZealandWalk.API.Repositories
             if (affectedRowCount < 0)
             {
                 _logger.LogError("EfRegionRepository UpdateAsync : {id}, {model}", id, model);
-                return null;
+                return new Region { Id = Guid.Empty };
             }
             return model;
         }
 
         public async Task<Region> DeleteAsync(Guid id)
         {
-            Region region = await _context.Regions.FindAsync(id);
+            Region? region = await _context.Regions.FindAsync(id);
             if (region == null)
             {
                 _logger.LogInformation("EfRegionRepository DeleteAsync : {id}", id);
@@ -94,7 +97,7 @@ namespace NewZealandWalk.API.Repositories
             if (affectedRowCount < 0)
             {
                 _logger.LogError("EfRegionRepository DeleteAsync : {id}", id);
-                return null;
+                return new Region { Id = Guid.Empty };
             }
             return region;
         }

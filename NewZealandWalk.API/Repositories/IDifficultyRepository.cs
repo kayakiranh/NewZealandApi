@@ -2,6 +2,9 @@
 
 namespace NewZealandWalk.API.Repositories
 {
+    /// <summary>
+    /// Entity Framework Repository for "Difficulty" entity
+    /// </summary>
     public interface IDifficultyRepository
     {
         Task<List<Difficulty>> GetAllAsync(string? queryName = null, bool? isOrderName = null, int? page = null);

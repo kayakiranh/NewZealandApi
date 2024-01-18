@@ -3,7 +3,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace NewZealandWalk.API.Swagger
+namespace NewZealandWalk.API.SwaggerOptions
 {
     /// <summary>
     /// Api Versioning and swagger configuration

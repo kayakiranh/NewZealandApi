@@ -3,18 +3,16 @@ using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NewZealandWalk.API.CustomActionFilters;
-using NewZealandWalk.API.Models.DataTransferObject.RegionDtos;
+using NewZealandWalk.API.Models.DataTransferObjects.RegionDtos;
 using NewZealandWalk.API.Models.NzWalk.Domain;
 using NewZealandWalk.API.Repositories;
 
 namespace NewZealandWalk.API.Controllers
 {
-    //https://localhost:7265/swagger/v1/swagger.json
-    [Authorize]
+    [Authorize(Roles = "Writer,Reader")]
     [ApiController]
     [Produces("application/json")]
     [ApiVersion("1.0")]
-    [ApiVersion("2.0")]
     [Route("api/v{VersionId:apiVersion}/[controller]")]
     public class RegionController : ControllerBase
     {
@@ -29,8 +27,6 @@ namespace NewZealandWalk.API.Controllers
             _mapper = mapper;
         }
 
-        //(HttpGet)https://localhost:7265/api/v1/region
-        //(HttpGet)http://localhost:5070/api/v1/region
         [MapToApiVersion("1.0")]
         [HttpGet]
         [ProducesResponseType(200)]
@@ -45,8 +41,6 @@ namespace NewZealandWalk.API.Controllers
             return Ok(regionDtoList);
         }
 
-        //(HttpGet)https://localhost:7265/api/v1/region/2a03a45e-8d9f-4083-bb9b-9601da9354b3
-        //(HttpGet)http://localhost:5070/api/v1/region/2a03a45e-8d9f-4083-bb9b-9601da9354b3
         [MapToApiVersion("1.0")]
         [HttpGet("{id:Guid}")]
         [ProducesResponseType(200)]
@@ -54,15 +48,13 @@ namespace NewZealandWalk.API.Controllers
         [Authorize(Roles = "Writer,Reader")]
         public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
-            Region region = await _regionRepository.GetByIdAsync(id);
-            if (region.Id == Guid.Empty) return NoContent();
+            Region? region = await _regionRepository.GetByIdAsync(id);
+            if (region?.Id == Guid.Empty) return NoContent();
 
             RegionDto regionDto = _mapper.Map<RegionDto>(region);
             return Ok(regionDto);
         }
 
-        //(HttpPost)https://localhost:7265/api/v1/region + body
-        //(HttpPost)http://localhost:5070/api/v1/region + body
         [MapToApiVersion("1.0")]
         [HttpPost]
         [ProducesResponseType(200)]
@@ -73,14 +65,12 @@ namespace NewZealandWalk.API.Controllers
         public async Task<IActionResult> Create([FromBody] CreateRegionDto model)
         {
             Region region = _mapper.Map<Region>(model);
-            Region insertedRegion = await _regionRepository.CreateAsync(region);
-            if (insertedRegion.Id == Guid.Empty) return Problem("Region Create Error", "", 417);
+            Region? insertedRegion = await _regionRepository.CreateAsync(region);
+            if (insertedRegion?.Id == Guid.Empty) return Problem("Region Create Error", "", 417);
 
             return Ok(region);
         }
 
-        //(HttpPut)https://localhost:7265/api/v1/region/2a03a45e-8d9f-4083-bb9b-9601da9354b3 + body
-        //(HttpPut)http://localhost:5070/api/v1/region/2a03a45e-8d9f-4083-bb9b-9601da9354b3 + body
         [MapToApiVersion("1.0")]
         [HttpPut("{id:Guid}")]
         [ProducesResponseType(200)]
@@ -91,15 +81,12 @@ namespace NewZealandWalk.API.Controllers
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateRegionDto model)
         {
             Region region = _mapper.Map<Region>(model);
-            Region updatedRegion = await _regionRepository.UpdateAsync(id, region);
-            if (updatedRegion == null) return Problem("Region Create Error", "", 417);
-            if (updatedRegion.Id == Guid.Empty) return NoContent();
+            Region? updatedRegion = await _regionRepository.UpdateAsync(id, region);
+            if (updatedRegion?.Id == Guid.Empty) return Problem("Region Create Error", "", 417);
 
             return Ok(updatedRegion);
         }
 
-        //(HttpDelete)https://localhost:7265/api/v1/region/2a03a45e-8d9f-4083-bb9b-9601da9354b3
-        //(HttpDelete)http://localhost:5070/api/v1/region/2a03a45e-8d9f-4083-bb9b-9601da9354b3
         [MapToApiVersion("1.0")]
         [HttpDelete("{id:Guid}")]
         [ProducesResponseType(200)]
@@ -110,9 +97,8 @@ namespace NewZealandWalk.API.Controllers
         {
             if (id == Guid.Empty) { _logger.LogError("Region Delete : {id}", id); return BadRequest(); }
 
-            Region deletedRegion = await _regionRepository.DeleteAsync(id);
-            if (deletedRegion == null) return Problem("Region Delete Error", "", 417);
-            if (deletedRegion.Id == Guid.Empty) return NoContent();
+            Region? deletedRegion = await _regionRepository.DeleteAsync(id);
+            if (deletedRegion?.Id == Guid.Empty) return Problem("Region Delete Error", "", 417);
 
             return Ok(deletedRegion);
         }

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace NewZealandWalk.API.Models.DataTransferObject.PhotoDtos
+namespace NewZealandWalk.API.Models.DataTransferObjects.PhotoDtos
 {
     [Serializable]
     public record PhotoUploadRequestDto

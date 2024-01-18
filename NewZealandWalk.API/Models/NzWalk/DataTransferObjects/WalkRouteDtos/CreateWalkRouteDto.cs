@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace NewZealandWalk.API.Models.DataTransferObject.WalkRouteDtos
+namespace NewZealandWalk.API.Models.DataTransferObjects.WalkRouteDtos
 {
     [Serializable]
     public record CreateWalkRouteDto

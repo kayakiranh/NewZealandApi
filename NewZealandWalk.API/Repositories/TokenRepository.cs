@@ -9,6 +9,9 @@ using System.Text;
 
 namespace NewZealandWalk.API.Repositories
 {
+    /// <summary>
+    /// Access token and Refresh token generator repository
+    /// </summary>
     [Serializable]
     public class TokenRepository : ITokenRepository
     {
@@ -22,13 +25,15 @@ namespace NewZealandWalk.API.Repositories
             _configuration = configuration;
             _userManager = userManager;
             _provider = provider;
-            _dataProtecter = _provider.CreateProtector(_configuration.GetValue<string>("DataProtecterKey"));
+            _dataProtecter = _provider.CreateProtector(_configuration.GetValue<string>("DataProtecterKey") ?? "Super!Secret1Protecter3Key$");
         }
 
         public async Task<Tuple<string, string, DateTime>> CreateTokens(AppUser user, List<string> roles)
         {
-            List<Claim> claimList = new List<Claim>();
-            claimList.Add(new Claim(ClaimTypes.Email, _dataProtecter.Protect(user.Email)));
+            List<Claim> claimList = new List<Claim>
+            {
+                new Claim(ClaimTypes.Email, _dataProtecter.Protect(user.Email))
+            };
 
             roles.ForEach(r => claimList.Add(new Claim(ClaimTypes.Role, _dataProtecter.Protect(r))));
 
@@ -57,15 +62,17 @@ namespace NewZealandWalk.API.Repositories
             return new Tuple<string, string, DateTime>(accessToken, refreshToken, expiration);
         }
 
-        public async Task<Tuple<AppUser, string, string, DateTime>> CreateNewTokens(string refreshToken)
+        public async Task<Tuple<AppUser, string, string, DateTime>?> CreateNewTokens(string refreshToken)
         {
             JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
             JwtSecurityToken securityToken = (JwtSecurityToken)tokenHandler.ReadToken(refreshToken);
             Claim emailClaim = securityToken.Claims.First(x => x.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress");
             IEnumerable<Claim> roleClaims = securityToken.Claims.Where(x => x.Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/role");
 
-            AppUser appUser = await _userManager.FindByEmailAsync(_dataProtecter.Unprotect(emailClaim.Value));
+            AppUser? appUser = await _userManager.FindByEmailAsync(_dataProtecter.Unprotect(emailClaim.Value));
             if (appUser == null) return null;
+
+            if (appUser.RefreshTokenExpiration < DateTime.Now) return null;
 
             List<string> roles = new List<string>();
             roleClaims.ToList().ForEach(x => roles.Add(_dataProtecter.Unprotect(x.Value)));

@@ -1,4 +1,4 @@
-﻿namespace NewZealandWalk.API.Models.DataTransferObject.RegionDtos
+﻿namespace NewZealandWalk.API.Models.DataTransferObjects.RegionDtos
 {
     [Serializable]
     public record RegionDto

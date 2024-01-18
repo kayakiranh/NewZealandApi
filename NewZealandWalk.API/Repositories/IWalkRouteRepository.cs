@@ -2,6 +2,9 @@
 
 namespace NewZealandWalk.API.Repositories
 {
+    /// <summary>
+    /// Entity Framework Repository for "WalkRoute" entity
+    /// </summary>
     public interface IWalkRouteRepository
     {
         Task<List<WalkRoute>> GetAllAsync(string? queryName = null, bool? isOrderName = null, bool? isLengthOrder = null, int? page = null);

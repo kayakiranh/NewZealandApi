@@ -1,4 +1,4 @@
-﻿namespace NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos
+﻿namespace NewZealandWalk.API.Models.Identity.DataTransferObjects.LoginDtos
 {
     [Serializable]
     public record LoginResponseDto

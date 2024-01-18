@@ -4,6 +4,10 @@ using NewZealandWalk.API.Models.NzWalk.Domain;
 
 namespace NewZealandWalk.API.Repositories
 {
+    /// <summary>
+    /// Entity Framework Repository for "Difficulty" entity
+    /// </summary>
+    [Serializable]
     public class EfDifficultyRepository : IDifficultyRepository
     {
         private readonly NzwDbContext _context;
@@ -34,7 +38,7 @@ namespace NewZealandWalk.API.Repositories
 
         public async Task<Difficulty> GetByIdAsync(Guid id)
         {
-            Difficulty difficulty = await _context.Difficulties.FindAsync(id);
+            Difficulty? difficulty = await _context.Difficulties.FindAsync(id);
             if (difficulty == null)
             {
                 _logger.LogInformation("EfDifficultyRepository GetByIdAsync : {id}", id);
@@ -59,7 +63,7 @@ namespace NewZealandWalk.API.Repositories
 
         public async Task<Difficulty> UpdateAsync(Guid id, Difficulty model)
         {
-            Difficulty difficulty = await _context.Difficulties.FindAsync(id);
+            Difficulty? difficulty = await _context.Difficulties.FindAsync(id);
             if (difficulty == null)
             {
                 _logger.LogInformation("EfDifficultyRepository UpdateAsync : {id}", id);
@@ -73,14 +77,14 @@ namespace NewZealandWalk.API.Repositories
             if (affectedRowCount < 0)
             {
                 _logger.LogError("EfDifficultyRepository UpdateAsync : {id}, {model}", id, model);
-                return null;
+                return new Difficulty { Id = Guid.Empty };
             }
             return model;
         }
 
         public async Task<Difficulty> DeleteAsync(Guid id)
         {
-            Difficulty difficulty = await _context.Difficulties.FindAsync(id);
+            Difficulty? difficulty = await _context.Difficulties.FindAsync(id);
             if (difficulty == null)
             {
                 _logger.LogInformation("EfDifficultyRepository DeleteAsync : {id}", id);
@@ -92,7 +96,7 @@ namespace NewZealandWalk.API.Repositories
             if (affectedRowCount < 0)
             {
                 _logger.LogError("EfDifficultyRepository DeleteAsync : {id}", id);
-                return null;
+                return new Difficulty { Id = Guid.Empty };
             }
             return difficulty;
         }

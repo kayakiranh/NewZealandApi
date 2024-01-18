@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.CodeAnalysis;
 
-namespace NewZealandWalk.API.Models.DataTransferObject.RegionDtos
+namespace NewZealandWalk.API.Models.DataTransferObjects.RegionDtos
 {
     [Serializable]
     public record UpdateRegionDto

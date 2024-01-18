@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace NewZealandWalk.API.Models.DataTransferObject.DifficultyDtos
+namespace NewZealandWalk.API.Models.DataTransferObjects.DifficultyDtos
 {
     [Serializable]
     public record CreateDifficultyDto

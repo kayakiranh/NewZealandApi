@@ -1,7 +1,7 @@
-﻿using NewZealandWalk.API.Models.DataTransferObject.DifficultyDtos;
-using NewZealandWalk.API.Models.DataTransferObject.RegionDtos;
+﻿using NewZealandWalk.API.Models.DataTransferObjects.DifficultyDtos;
+using NewZealandWalk.API.Models.DataTransferObjects.RegionDtos;
 
-namespace NewZealandWalk.API.Models.DataTransferObject.WalkRouteDtos
+namespace NewZealandWalk.API.Models.DataTransferObjects.WalkRouteDtos
 {
     [Serializable]
     public record WalkRouteDto

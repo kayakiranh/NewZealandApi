@@ -2,6 +2,10 @@
 
 namespace NewZealandWalk.API.Middlewares
 {
+    /// <summary>
+    /// Middleware for response status tracker
+    /// </summary>
+    [Serializable]
     public class ResponseTrackerMiddleware
     {
         private readonly ILogger<ResponseTrackerMiddleware> _logger;

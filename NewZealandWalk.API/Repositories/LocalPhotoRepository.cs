@@ -3,6 +3,9 @@ using NewZealandWalk.API.Models.NzWalk.Domain;
 
 namespace NewZealandWalk.API.Repositories
 {
+    /// <summary>
+    /// Entity Framework Repository for "Photo" entity. It works for local upload. If needed azure blob, must be develop and dependency for azure repository.
+    /// </summary>
     [Serializable]
     public class LocalPhotoRepository : IPhotoRepository
     {
@@ -26,12 +29,16 @@ namespace NewZealandWalk.API.Repositories
                 await model.FormFile.CopyToAsync(fileStream);
             }
 
-            string filePath = $"{_httpContextAccessor.HttpContext.Request.Scheme}://{_httpContextAccessor.HttpContext.Request.Host}{_httpContextAccessor.HttpContext.Request.PathBase}/Images/{model.Name}{model.Extension}";
-            model.Path = filePath;
+            HttpRequest? httpRequest = _httpContextAccessor?.HttpContext?.Request;
+            if (httpRequest == null)
+                return new Photo { Id = Guid.Empty };
+
+            model.Path = $"{httpRequest.Scheme}://{httpRequest.Host}{httpRequest.PathBase}/Images/{model.Name}{model.Extension}";
 
             await _dbContext.Photos.AddAsync(model);
             int affectedRowCount = await _dbContext.SaveChangesAsync();
-            if (affectedRowCount < 1) return new Photo { Id = Guid.Empty };
+            if (affectedRowCount < 1)
+                return new Photo { Id = Guid.Empty };
 
             return model;
         }

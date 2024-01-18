@@ -2,6 +2,10 @@
 
 namespace NewZealandWalk.API.Middlewares
 {
+    /// <summary>
+    /// Middleware for catch expection
+    /// </summary>
+    [Serializable]
     public class ExceptionHandlerMiddleware
     {
         private readonly ILogger<ExceptionHandlerMiddleware> _logger;

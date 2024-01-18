@@ -1,4 +1,4 @@
-﻿namespace NewZealandWalk.API.Models.DataTransferObject.DifficultyDtos
+﻿namespace NewZealandWalk.API.Models.DataTransferObjects.DifficultyDtos
 {
     [Serializable]
     public record DifficultyDto

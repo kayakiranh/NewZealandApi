@@ -1,26 +1,16 @@
 ﻿using Asp.Versioning;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using NewZealandWalk.API.Models.DataTransferObject.RegisterDtos;
-using NewZealandWalk.API.Models.Identity.DataTransferObject.LoginDtos;
-using NewZealandWalk.API.Models.Identity.DataTransferObject.RefreshDtos;
+using NewZealandWalk.API.Models.DataTransferObjects.RegisterDtos;
+using NewZealandWalk.API.Models.Identity.DataTransferObjects.LoginDtos;
+using NewZealandWalk.API.Models.Identity.DataTransferObjects.RefreshDtos;
 using NewZealandWalk.API.Models.Identity.Domain;
 using NewZealandWalk.API.Repositories;
 
 namespace NewZealandWalk.API.Controllers
 {
-    /// <summary>
-    /// This API manage auth processes. V1 is standart process, V2 is standart process with client security check
-    /// </summary>
-    /// <remarks>
-    /// Possible values could be:
-    ///
-    ///     "Freezing", "Bracing", "Chilly", "Cool", "Mild",
-    ///     "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    ///
-    /// Username must be : xxx@local.com
-    /// Password must be : X1x2!x3X4
-    /// </remarks>
+    [AllowAnonymous]
     [ApiController]
     [ApiVersion("1.0")]
     [ApiVersion("2.0")]
@@ -44,17 +34,22 @@ namespace NewZealandWalk.API.Controllers
         }
 
         /// <summary>
-        /// This API manage auth processes. V1 is standart process, V2 is standart process with client security check
+        /// Register new user
         /// </summary>
         /// <remarks>
-        ///Possible values could be:
-        ///
-        ///     Username must be : xxx@local.com
-        ///     Password must be : X1x2!x3X4
-        ///
+        /// Example Request :
+        /// <code>
+        /// {
+        ///     "Username": "swagger1@local.com",
+        ///     "Password": "X1x2!x3X4",
+        ///     "Roles": [
+        ///       "Writer","Reader"
+        ///     ]
+        /// }
+        /// Example Response :
+        /// 200/400+ string
+        ///</code>
         /// </remarks>
-        /// <param name="model" example="">Describe parameter.</param>
-        /// <returns>JSON describing matching product data to the entered barcode</returns>
         [MapToApiVersion("1.0")]
         [HttpPost("Register")]
         public async Task<IActionResult> RegisterV1([FromBody] RegisterRequestDto model)
@@ -72,6 +67,26 @@ namespace NewZealandWalk.API.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// Login
+        /// </summary>
+        /// <remarks>
+        /// Example Request :
+        /// <code>
+        /// {
+        ///     "Username": "swagger1@local.com",
+        ///     "Password": "X1x2!x3X4"
+        /// }
+        ///</code>
+        /// Example Response :
+        /// <code>
+        /// {
+        ///     "Token": "eyJhbGciOiJodHRwOi8vdYcXlPc2pfaHYOFZLMmU0b3pbXOC",
+        ///     "RefreshToken": "eyJhbGciOiJodHRwOi8v9yZy93cy8yMDA1LzA12piG",
+        ///     "Expiration": "2024-01-18T17:25:48.2869957+03:00"
+        /// }
+        /// </code>
+        /// </remarks>
         [MapToApiVersion("1.0")]
         [HttpPost("Login")]
         public async Task<IActionResult> LoginV1([FromBody] LoginRequestDto model)
@@ -102,7 +117,25 @@ namespace NewZealandWalk.API.Controllers
             return Ok(loginResponseDto);
         }
 
-
+        /// <summary>
+        /// Get new tokens with valid refresh token
+        /// </summary>
+        /// <remarks>
+        /// Example Request :
+        /// <code>
+        /// {
+        ///    "RefreshToken": "eyJhbGciOiJodHRwOi8v9yZy93cy8yMDA1LzA12piG",
+        /// }
+        ///</code>
+        /// Example Response :
+        /// <code>
+        /// {
+        ///     "Token": "eyJhbGciOiJodHRwOi8vdYcXlPc2pfaHYOFZLMmU0b3pbXOC",
+        ///     "RefreshToken": "eyJhbGciOiJodHRwOi8v9yZy93cy8yMDA1LzA12piG",
+        ///     "Expiration": "2024-01-18T17:25:48.2869957+03:00"
+        /// }
+        /// </code>
+        /// </remarks>
         [MapToApiVersion("1.0")]
         [HttpPost("Refresh")]
         public async Task<IActionResult> RefreshV1([FromBody] RefreshRequestDto model)

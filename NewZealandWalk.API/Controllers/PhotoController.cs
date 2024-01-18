@@ -1,14 +1,15 @@
 ﻿using Asp.Versioning;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using NewZealandWalk.API.Models.DataTransferObject.PhotoDtos;
+using NewZealandWalk.API.Models.DataTransferObjects.PhotoDtos;
 using NewZealandWalk.API.Models.NzWalk.Domain;
 using NewZealandWalk.API.Repositories;
 
 namespace NewZealandWalk.API.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Writer,Reader")]
     [ApiController]
+    [Produces("application/json")]
     [ApiVersion("2.0")]
     [Route("api/v{VersionId:apiVersion}/[controller]")]
     public class PhotoController : ControllerBase
@@ -43,6 +44,7 @@ namespace NewZealandWalk.API.Controllers
             return Ok(insertedPhoto);
         }
 
+        //Validate photo
         private void ValidateFile(PhotoUploadRequestDto model)
         {
             string extension = Path.GetExtension(model.File.FileName);
@@ -51,6 +53,5 @@ namespace NewZealandWalk.API.Controllers
             if (!allowedExtensions.Contains(extension)) ModelState.AddModelError("File", "Unsupported file extension");
             if (model.File.Length > 10485760) ModelState.AddModelError("File", "File size limit is 10 MB");
         }
-
     }
 }

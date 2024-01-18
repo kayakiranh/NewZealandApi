@@ -4,6 +4,10 @@ using NewZealandWalk.API.Models.NzWalk.Domain;
 
 namespace NewZealandWalk.API.Repositories
 {
+    /// <summary>
+    /// Entity Framework Repository for "WalkRoute" entity
+    /// </summary>
+    [Serializable]
     public class EfWalkRouteRepository : IWalkRouteRepository
     {
         private readonly NzwDbContext _context;
@@ -40,7 +44,7 @@ namespace NewZealandWalk.API.Repositories
 
         public async Task<WalkRoute> GetByIdAsync(Guid id)
         {
-            WalkRoute walkRoute = await _context.WalkRoutes.Include(x => x.Difficulty).Include(x => x.Region).FirstOrDefaultAsync(x => x.Id == id);
+            WalkRoute? walkRoute = await _context.WalkRoutes.Include(x => x.Difficulty).Include(x => x.Region).FirstOrDefaultAsync(x => x.Id == id);
             if (walkRoute == null)
             {
                 _logger.LogInformation("EfWalkRouteRepository GetByIdAsync : {id}", id);
@@ -52,14 +56,14 @@ namespace NewZealandWalk.API.Repositories
 
         public async Task<WalkRoute> CreateAsync(WalkRoute model)
         {
-            Region region = await _context.Regions.FindAsync(model.RegionId);
+            Region? region = await _context.Regions.FindAsync(model.RegionId);
             if (region == null)
             {
                 _logger.LogError("EfWalkRouteRepository CreateAsync : {region}", region);
                 return new WalkRoute { Id = Guid.Empty };
             }
 
-            Difficulty difficulty = await _context.Difficulties.FindAsync(model.DifficultyId);
+            Difficulty? difficulty = await _context.Difficulties.FindAsync(model.DifficultyId);
             if (region == null)
             {
                 _logger.LogError("EfWalkRouteRepository CreateAsync : {difficulty}", difficulty);
@@ -79,24 +83,10 @@ namespace NewZealandWalk.API.Repositories
 
         public async Task<WalkRoute> UpdateAsync(Guid id, WalkRoute model)
         {
-            WalkRoute walkRoute = await _context.WalkRoutes.FindAsync(id);
+            WalkRoute? walkRoute = await _context.WalkRoutes.Include(wr => wr.Difficulty).Include(wr => wr.Region).FirstOrDefaultAsync(wr => wr.Id == id);
             if (walkRoute == null)
             {
                 _logger.LogInformation("EfWalkRouteRepository UpdateAsync : {id}", id);
-                return new WalkRoute { Id = Guid.Empty };
-            }
-
-            Region region = await _context.Regions.FindAsync(model.RegionId);
-            if (region == null)
-            {
-                _logger.LogError("EfWalkRouteRepository CreateAsync : {region}", region);
-                return new WalkRoute { Id = Guid.Empty };
-            }
-
-            Difficulty difficulty = await _context.Difficulties.FindAsync(model.DifficultyId);
-            if (region == null)
-            {
-                _logger.LogError("EfWalkRouteRepository CreateAsync : {difficulty}", difficulty);
                 return new WalkRoute { Id = Guid.Empty };
             }
 
@@ -112,14 +102,14 @@ namespace NewZealandWalk.API.Repositories
             if (affectedRowCount < 0)
             {
                 _logger.LogError("EfWalkRouteRepository UpdateAsync : {id}, {model}", id, model);
-                return null;
+                return new WalkRoute { Id = Guid.Empty };
             }
             return model;
         }
 
         public async Task<WalkRoute> DeleteAsync(Guid id)
         {
-            WalkRoute walkRoute = await _context.WalkRoutes.FindAsync(id);
+            WalkRoute? walkRoute = await _context.WalkRoutes.FindAsync(id);
             if (walkRoute == null)
             {
                 _logger.LogInformation("EfWalkRouteRepository DeleteAsync : {id}", id);
@@ -131,7 +121,7 @@ namespace NewZealandWalk.API.Repositories
             if (affectedRowCount < 0)
             {
                 _logger.LogError("EfWalkRouteRepository DeleteAsync : {id}", id);
-                return null;
+                return new WalkRoute { Id = Guid.Empty };
             }
             return walkRoute;
         }

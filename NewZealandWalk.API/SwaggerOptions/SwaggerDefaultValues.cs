@@ -4,7 +4,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.Text.Json;
 
-namespace NewZealandWalk.API.Swagger
+namespace NewZealandWalk.API.SwaggerOptions
 {
     /// <summary>
     /// Api Versioning
