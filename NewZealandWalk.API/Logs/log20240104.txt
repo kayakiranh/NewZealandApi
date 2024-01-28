@@ -46,7 +46,7 @@ WHERE [a].[UserId] = @__userId_0
 2024-01-04 11:14:16.572 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
 SELECT CASE
     WHEN EXISTS (
-        SELECT 1
+        SELECT 2
         FROM [Difficulties] AS [d]) THEN CAST(1 AS bit)
     ELSE CAST(0 AS bit)
 END
