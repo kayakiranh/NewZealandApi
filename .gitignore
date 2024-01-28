@@ -9,3 +9,4 @@
 /NewZealandWalk.API/obj
 /NewZealandWalk.API/bin/Debug/net7.0
 /NewZealandWalk.API/Logs/*.txt
+*.txt

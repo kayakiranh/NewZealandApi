@@ -26,7 +26,7 @@
 2024-01-13 23:00:39.297 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
 2024-01-13 23:00:39.299 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/favicon-32x32.png - - - 200 628 image/png 4.8657ms
 2024-01-13 23:00:39.331 +03:00 [ERR] An unhandled exception has occurred while executing the request.
-Swashbuckle.AspNetCore.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/auth/register" for actions - NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API),NewZealandWalk.API.Controllers.AuthController.ClientV2 (NewZealandWalk.API),NewZealandWalk.API.Controllers.AuthController.RegisterV2 (NewZealandWalk.API). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
+Swashbuckle.AspNetCoree.SwaggerGen.SwaggerGeneratorException: Conflicting method/path combination "POST api/auth/register" for actions - NewZealandWalk.API.Controllers.AuthController.RegisterV1 (NewZealandWalk.API),NewZealandWalk.API.Controllers.AuthController.ClientV2 (NewZealandWalk.API),NewZealandWalk.API.Controllers.AuthController.RegisterV2 (NewZealandWalk.API). Actions require a unique method/path combination for Swagger/OpenAPI 3.0. Use ConflictingActionsResolver as a workaround
    at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GenerateOperations(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
    at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GeneratePaths(IEnumerable`1 apiDescriptions, SchemaRepository schemaRepository)
    at Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenerator.GetSwaggerDocumentWithoutFilters(String documentName, String host, String basePath)
