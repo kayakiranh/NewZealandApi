@@ -80,5 +80,26 @@ namespace NewZealandWalk.API.Repositories
             Tuple<string, string, DateTime> newTokenData = await CreateTokens(appUser, roles);
             return new Tuple<AppUser, string, string, DateTime>(appUser, newTokenData.Item1, newTokenData.Item2, newTokenData.Item3);
         }
+
+        public async Task<string> CreateClientToken()
+        {
+            List<Claim> claimList = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, _dataProtecter.Protect(_configuration.GetValue<string>("Client:Id"))),
+                new Claim(ClaimTypes.Name, _dataProtecter.Protect(_configuration.GetValue<string>("Client:Secret")))
+            };
+
+            byte[] secret = Encoding.UTF8.GetBytes(_configuration.GetValue<string>("Jwt:Secret"));
+            DateTime expiration = DateTime.Now.AddMinutes(_configuration.GetValue<int>("Jwt:Expiration"));
+
+            JwtSecurityToken jwtToken = new JwtSecurityToken(
+                _configuration.GetValue<string>("Jwt:Issuer"),
+                _configuration.GetValue<string>("Jwt:Audience"),
+                claimList,
+                expires: expiration.AddMinutes(_configuration.GetValue<int>("Client:Duration")),
+                signingCredentials: new SigningCredentials(new SymmetricSecurityKey(secret), SecurityAlgorithms.HmacSha256Signature));
+
+            return new JwtSecurityTokenHandler().WriteToken(jwtToken);
+        }
     }
 }

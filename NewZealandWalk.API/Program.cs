@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using NewZealandWalk.API.Attributes;
 using NewZealandWalk.API.Data;
 using NewZealandWalk.API.Mappings;
 using NewZealandWalk.API.Middlewares;
@@ -122,6 +124,9 @@ var logger = new LoggerConfiguration()
 builder.Logging.ClearProviders();
 builder.Logging.AddSerilog(logger);
 builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
+builder.Services.AddScoped<ClientCheckAttribute>();
+builder.Services.AddLogging();
+builder.Services.AddSingleton(typeof(Microsoft.Extensions.Logging.ILogger), typeof(Logger<Program>));
 WebApplication app = builder.Build();
 if (app.Environment.IsDevelopment())
 {

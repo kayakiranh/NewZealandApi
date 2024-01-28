@@ -10,5 +10,7 @@ namespace NewZealandWalk.API.Repositories
         Task<Tuple<string, string, DateTime>> CreateTokens(AppUser user, List<string> roles);
 
         Task<Tuple<AppUser, string, string, DateTime>?> CreateNewTokens(string refreshToken);
+
+        Task<string> CreateClientToken();
     }
 }

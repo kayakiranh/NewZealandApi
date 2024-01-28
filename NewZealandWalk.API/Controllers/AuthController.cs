@@ -2,11 +2,14 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
+using NewZealandWalk.API.Attributes;
 using NewZealandWalk.API.Models.DataTransferObjects.RegisterDtos;
 using NewZealandWalk.API.Models.Identity.DataTransferObjects.LoginDtos;
 using NewZealandWalk.API.Models.Identity.DataTransferObjects.RefreshDtos;
 using NewZealandWalk.API.Models.Identity.Domain;
 using NewZealandWalk.API.Repositories;
+using System.Text;
 
 namespace NewZealandWalk.API.Controllers
 {
@@ -18,19 +21,21 @@ namespace NewZealandWalk.API.Controllers
     [Route("api/v{VersionId:apiVersion}/[controller]")]
     public class AuthController : ControllerBase
     {
+        private readonly ILogger _logger;
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ITokenRepository _tokenRepository;
         private readonly IConfiguration _configuration;
         private readonly IHttpContextAccessor _httpContextAccessor;
 
-        public AuthController(UserManager<AppUser> userManager, ITokenRepository tokenRepository, IConfiguration configuration, IHttpContextAccessor httpContextAccessor, SignInManager<AppUser> signInManager)
+        public AuthController(UserManager<AppUser> userManager, ITokenRepository tokenRepository, IConfiguration configuration, IHttpContextAccessor httpContextAccessor, SignInManager<AppUser> signInManager, ILogger logger)
         {
             _userManager = userManager;
             _tokenRepository = tokenRepository;
             _configuration = configuration;
             _httpContextAccessor = httpContextAccessor;
             _signInManager = signInManager;
+            _logger = logger;
         }
 
         /// <summary>
@@ -91,7 +96,7 @@ namespace NewZealandWalk.API.Controllers
         [HttpPost("Login")]
         public async Task<IActionResult> LoginV1([FromBody] LoginRequestDto model)
         {
-            AppUser appUser = await _userManager.FindByEmailAsync(model.Username);
+            AppUser? appUser = await _userManager.FindByEmailAsync(model.Username);
             if (appUser == null) return BadRequest();
 
             bool isPasswordTrue = await _userManager.CheckPasswordAsync(appUser, model.Password);
@@ -159,144 +164,124 @@ namespace NewZealandWalk.API.Controllers
             return Ok(loginResponseDto);
         }
 
-        //[MapToApiVersion("2.0")]
-        //[HttpPost("Client")]
-        //public async Task<IActionResult> ClientV2()
-        //{
-        //    #region client check
+        /// <summary>
+        /// Get client token with basic auth
+        /// </summary>
+        /// <remarks>
+        /// Example Request :
+        /// <code>
+        /// {
+        ///     "Username": "aW5waZSb2GlzyZB2F5jbw==",
+        ///     "Password": "IVBoaS5yZbDS5T0dmb0b23s2Z0d2MX0h",
+        /// }
+        /// Example Response :
+        /// 200/400+ string
+        ///</code>
+        /// </remarks>
+        [MapToApiVersion("2.0")]
+        [HttpPost("Client")]
+        public async Task<IActionResult> ClientV2()
+        {
+            #region client check
 
-        //    string configClientId = _configuration.GetValue<string>("Client:Id");
-        //    string configClientSecret = _configuration.GetValue<string>("Client:Secret");
+            string? configClientId = _configuration.GetValue<string>("Client:Id");
+            string? configClientSecret = _configuration.GetValue<string>("Client:Secret");
+            if (string.IsNullOrEmpty(configClientId) || string.IsNullOrEmpty(configClientSecret)) return BadRequest();
 
-        //    string auth = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
-        //    auth = auth.Replace("Basic ", "");
-        //    byte[] data = Convert.FromBase64String(auth);
-        //    string decodedAuth = Encoding.UTF8.GetString(data);
-        //    string[] authParts = decodedAuth.Split(":");
+            string? auth = _httpContextAccessor?.HttpContext?.Request.Headers["Authorization"];
+            if (string.IsNullOrEmpty(auth)) return Unauthorized();
 
-        //    string clientId = authParts[0];
-        //    string clientSecret = authParts[1];
+            auth = auth.Replace("Basic ", "");
+            byte[] data = Convert.FromBase64String(auth);
+            string decodedAuth = Encoding.UTF8.GetString(data);
+            string[] authParts = decodedAuth.Split(":");
 
-        //    bool isClientIdSame = string.Equals(configClientId, clientId, StringComparison.CurrentCultureIgnoreCase);
-        //    bool isClientSecretSame = string.Equals(configClientSecret, clientSecret, StringComparison.CurrentCultureIgnoreCase);
+            string clientId = authParts[0];
+            string clientSecret = authParts[1];
 
-        //    if (!isClientIdSame || !isClientSecretSame) return BadRequest();
+            bool isClientIdSame = string.Equals(configClientId, clientId, StringComparison.CurrentCultureIgnoreCase);
+            bool isClientSecretSame = string.Equals(configClientSecret, clientSecret, StringComparison.CurrentCultureIgnoreCase);
 
-        //    #endregion client check
+            if (!isClientIdSame || !isClientSecretSame) return BadRequest();
 
-        //    return Ok(auth);
-        //}
+            #endregion client check
 
-        //[MapToApiVersion("2.0")]
-        //[HttpPost("Register")]
-        //public async Task<IActionResult> RegisterV2([FromBody] RegisterRequestDto model)
-        //{
-        //    IdentityUser identityUser = new IdentityUser
-        //    {
-        //        UserName = model.Username,
-        //        Email = model.Username
-        //    };
+            string clientToken = await _tokenRepository.CreateClientToken();
+            return Ok(clientToken);
+        }
 
-        //    IdentityResult newIdentityUser = await _userManager.CreateAsync(identityUser, model.Password);
-        //    newIdentityUser = await _userManager.AddToRolesAsync(identityUser, model.Roles);
-        //    if (!newIdentityUser.Succeeded) return BadRequest();
+        [TypeFilter(typeof(ClientTokenAttribute))]
+        [MapToApiVersion("2.0")]
+        [HttpPost("Register")]
+        public async Task<IActionResult> RegisterV2([FromBody] RegisterRequestDto model)
+        {
+            AppUser appUser = new AppUser
+            {
+                UserName = model.Username,
+                Email = model.Username
+            };
 
-        //    return Ok();
-        //}
+            IdentityResult identityResult = await _userManager.CreateAsync(appUser, model.Password);
+            identityResult = await _userManager.AddToRolesAsync(appUser, model.Roles);
+            if (!identityResult.Succeeded) return BadRequest(identityResult.Errors);
 
-        //[MapToApiVersion("2.0")]
-        //[HttpPost("Login")]
-        //public async Task<IActionResult> LoginV2([FromBody] LoginRequestDto model)
-        //{
-        //    IdentityUser identityUser = await _userManager.FindByEmailAsync(model.Username);
-        //    if (identityUser == null) return BadRequest();
+            return Ok();
+        }
 
-        //    bool isPasswordTrue = await _userManager.CheckPasswordAsync(identityUser, model.Password);
-        //    if (!isPasswordTrue) return BadRequest();
+        [TypeFilter(typeof(ClientTokenAttribute))]
+        [MapToApiVersion("2.0")]
+        [HttpPost("Login")]
+        public async Task<IActionResult> LoginV2([FromBody] LoginRequestDto model)
+        {
+            AppUser? appUser = await _userManager.FindByEmailAsync(model.Username);
+            if (appUser == null) return BadRequest();
 
-        //    IList<string> roles = await _userManager.GetRolesAsync(identityUser);
-        //    Tuple<string, string, DateTime> tokenData = await _tokenRepository.CreateTokens(identityUser, roles.ToList());
+            bool isPasswordTrue = await _userManager.CheckPasswordAsync(appUser, model.Password);
+            if (!isPasswordTrue) return BadRequest();
 
-        //    LoginResponseDto loginResponseDto = new LoginResponseDto { Token = tokenData.Item1, RefreshToken = tokenData.Item2, Expiration = tokenData.Item3 };
+            IList<string> roles = await _userManager.GetRolesAsync(appUser);
+            Tuple<string, string, DateTime> tokenData = await _tokenRepository.CreateTokens(appUser, roles.ToList());
 
-        //    return Ok(loginResponseDto);
-        //}
+            LoginResponseDto loginResponseDto = new LoginResponseDto { Token = tokenData.Item1, RefreshToken = tokenData.Item2, Expiration = tokenData.Item3 };
 
-        //[MapToApiVersion("3.0")]
-        //[HttpPost("Register")]
-        //public async Task<IActionResult> RegisterV3([FromBody] RegisterRequestDto model)
-        //{
-        //    #region client check
+            return Ok(loginResponseDto);
+        }
 
-        //    string configClientId = _configuration.GetValue<string>("Client:Id");
-        //    string configClientSecret = _configuration.GetValue<string>("Client:Secret");
+        [TypeFilter(typeof(ClientCheckAttribute))]
+        [MapToApiVersion("3.0")]
+        [HttpPost("Register")]
+        public async Task<IActionResult> RegisterV3([FromBody] RegisterRequestDto model)
+        {
+            AppUser appUser = new AppUser
+            {
+                UserName = model.Username,
+                Email = model.Username
+            };
 
-        //    string auth = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
-        //    auth = auth.Replace("Basic ", "");
-        //    byte[] data = Convert.FromBase64String(auth);
-        //    string decodedAuth = Encoding.UTF8.GetString(data);
-        //    string[] authParts = decodedAuth.Split(":");
+            IdentityResult identityResult = await _userManager.CreateAsync(appUser, model.Password);
+            identityResult = await _userManager.AddToRolesAsync(appUser, model.Roles);
+            if (!identityResult.Succeeded) return BadRequest(identityResult.Errors);
 
-        //    string clientId = authParts[0];
-        //    string clientSecret = authParts[1];
+            return Ok();
+        }
 
-        //    bool isClientIdSame = string.Equals(configClientId, clientId, StringComparison.CurrentCultureIgnoreCase);
-        //    bool isClientSecretSame = string.Equals(configClientSecret, clientSecret, StringComparison.CurrentCultureIgnoreCase);
+        [TypeFilter(typeof(ClientCheckAttribute))]
+        [MapToApiVersion("3.0")]
+        [HttpPost("Login")]
+        public async Task<IActionResult> LoginV3([FromBody] LoginRequestDto model)
+        {
+            AppUser? appUser = await _userManager.FindByEmailAsync(model.Username);
+            if (appUser == null) return BadRequest();
 
-        //    if (!isClientIdSame || !isClientSecretSame) return BadRequest();
+            bool isPasswordTrue = await _userManager.CheckPasswordAsync(appUser, model.Password);
+            if (!isPasswordTrue) return BadRequest();
 
-        //    #endregion client check
+            IList<string> roles = await _userManager.GetRolesAsync(appUser);
+            Tuple<string, string, DateTime> tokenData = await _tokenRepository.CreateTokens(appUser, roles.ToList());
 
-        //    IdentityUser identityUser = new IdentityUser
-        //    {
-        //        UserName = model.Username,
-        //        Email = model.Username
-        //    };
+            LoginResponseDto loginResponseDto = new LoginResponseDto { Token = tokenData.Item1, RefreshToken = tokenData.Item2, Expiration = tokenData.Item3 };
 
-        //    IdentityResult newIdentityUser = await _userManager.CreateAsync(identityUser, model.Password);
-        //    newIdentityUser = await _userManager.AddToRolesAsync(identityUser, model.Roles);
-        //    if (!newIdentityUser.Succeeded) return BadRequest();
-
-        //    return Ok();
-        //}
-
-        //[MapToApiVersion("3.0")]
-        //[HttpPost("Login")]
-        //public async Task<IActionResult> LoginV3([FromBody] LoginRequestDto model)
-        //{
-        //    #region client check
-
-        //    string configClientId = _configuration.GetValue<string>("Client:Id");
-        //    string configClientSecret = _configuration.GetValue<string>("Client:Secret");
-
-        //    string auth = _httpContextAccessor.HttpContext.Request.Headers["Authorization"];
-        //    auth = auth.Replace("Basic ", "");
-        //    byte[] data = Convert.FromBase64String(auth);
-        //    string decodedAuth = Encoding.UTF8.GetString(data);
-        //    string[] authParts = decodedAuth.Split(":");
-
-        //    string clientId = authParts[0];
-        //    string clientSecret = authParts[1];
-
-        //    bool isClientIdSame = string.Equals(configClientId, clientId, StringComparison.CurrentCultureIgnoreCase);
-        //    bool isClientSecretSame = string.Equals(configClientSecret, clientSecret, StringComparison.CurrentCultureIgnoreCase);
-
-        //    if (!isClientIdSame || !isClientSecretSame) return BadRequest();
-
-        //    #endregion client check
-
-        //    IdentityUser identityUser = await _userManager.FindByEmailAsync(model.Username);
-        //    if (identityUser == null) return BadRequest();
-
-        //    bool isPasswordTrue = await _userManager.CheckPasswordAsync(identityUser, model.Password);
-        //    if (!isPasswordTrue) return BadRequest();
-
-        //    IList<string> roles = await _userManager.GetRolesAsync(identityUser);
-        //    Tuple<string, string, DateTime> tokenData = await _tokenRepository.CreateTokens(identityUser, roles.ToList());
-
-        //    LoginResponseDto loginResponseDto = new LoginResponseDto { Token = tokenData.Item1, RefreshToken = tokenData.Item2, Expiration = tokenData.Item3 };
-
-        //    return Ok(loginResponseDto);
-        //}
+            return Ok(loginResponseDto);
+        }
     }
 }

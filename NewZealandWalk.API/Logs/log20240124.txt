@@ -1,0 +1,37 @@
+2024-01-24 14:40:42.817 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-24 14:40:43.648 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-24 14:40:43.650 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-24 14:40:43.652 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-24 14:40:43.653 +03:00 [INF] Hosting environment: Development
+2024-01-24 14:40:43.653 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-24 14:40:48.967 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-24 14:40:49.665 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 700.0223ms
+2024-01-24 14:40:49.704 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-24 14:40:49.711 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 6.3850ms
+2024-01-24 14:40:49.761 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-24 14:40:49.818 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 56.8864ms
+2024-01-24 14:40:49.862 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-24 14:40:49.889 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/favicon-32x32.png - -
+2024-01-24 14:40:49.903 +03:00 [INF] Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2024-01-24 14:40:49.906 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/favicon-32x32.png - - - 200 628 image/png 16.8503ms
+2024-01-24 14:40:50.032 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 170.0111ms
+2024-01-24 14:41:12.256 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - -
+2024-01-24 14:41:12.266 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 9.6848ms
+2024-01-24 15:29:48.711 +03:00 [INF] User profile is available. Using 'C:\Users\husey\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2024-01-24 15:29:48.967 +03:00 [INF] Now listening on: https://localhost:7265
+2024-01-24 15:29:48.968 +03:00 [INF] Now listening on: http://localhost:5070
+2024-01-24 15:29:48.970 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-01-24 15:29:48.971 +03:00 [INF] Hosting environment: Development
+2024-01-24 15:29:48.972 +03:00 [INF] Content root path: C:\Users\husey\Documents\GitHub\NewZealandWalk\NewZealandWalk.API
+2024-01-24 15:29:54.505 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/index.html - -
+2024-01-24 15:29:54.977 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/index.html - - - 200 - text/html;charset=utf-8 478.6619ms
+2024-01-24 15:29:55.011 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - -
+2024-01-24 15:29:55.023 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_framework/aspnetcore-browser-refresh.js - - - 200 12368 application/javascript;+charset=utf-8 12.2834ms
+2024-01-24 15:29:55.096 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/_vs/browserLink - -
+2024-01-24 15:29:55.156 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 59.6840ms
+2024-01-24 15:29:55.212 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - -
+2024-01-24 15:29:55.385 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 173.7972ms
+2024-01-24 15:36:29.514 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v3/swagger.json - -
+2024-01-24 15:36:29.526 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v3/swagger.json - - - 200 - application/json;charset=utf-8 12.6844ms
+2024-01-24 15:38:26.045 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - -
+2024-01-24 15:38:26.059 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7265/swagger/v2/swagger.json - - - 200 - application/json;charset=utf-8 15.1218ms
